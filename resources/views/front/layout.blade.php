@@ -7,9 +7,9 @@
 <head>
 
   <title>FreshCart - eCommerce HTML Template</title>
-  @vite('resources/assets/libs/slick-carousel/slick/slick.css')
-@vite('resources/assets/libs/slick-carousel/slick/slick-theme.css')
-@vite('resources/assets/libs/tiny-slider/dist/tiny-slider.css')
+  @vite(['resources/assets/libs/slick-carousel/slick/slick.css'])
+@vite(['resources/assets/libs/slick-carousel/slick/slick-theme.css'])
+@vite(['resources/assets/libs/tiny-slider/dist/tiny-slider.css'])
   <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -125,12 +125,12 @@
         <div class="row w-100 align-items-center gx-lg-2 gx-0">
           <div class="col-xxl-2 col-lg-3">
             <a class="navbar-brand d-none d-lg-block" href="index.html">
-              <img src="assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template">
+            <img src="{{ Vite::asset('resources/assets/img/team-2.jpg') }}" class="avatar avatar-sm me-3">
 
             </a>
             <div class="d-flex justify-content-between w-100 d-lg-none">
               <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template">
+              <img src="{{ asset('resources/assets/images/logo/freshcart-logo.svg') }}" alt="eCommerce HTML Template">
 
               </a>
 
@@ -827,8 +827,8 @@
           <!-- row -->
           <div class="row align-items-center">
             <div class="col-3 col-md-2">
-              <!-- img --> <img src="assets/images/products/product-img-2.jpg" alt="Ecommerce"
-                class="img-fluid"></div>
+            <img src="{{ Vite::asset('resources/assets/images/products/product-img-2.jpg') }}" alt="Ecommerce" class="img-fluid">
+</div>
             <div class="col-4 col-md-6 col-lg-5">
               <!-- title -->
               <a href="pages/shop-single.html" class="text-inherit">
