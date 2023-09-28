@@ -296,8 +296,10 @@
       </div>
       <div class="offcanvas offcanvas-start p-4 p-lg-0" id="navbar-default">
         <div class="d-flex justify-content-between align-items-center mb-2 d-block d-lg-none">
-          <a href="index.html"><img src="assets/images/logo/freshcart-logo.svg"
-              alt="eCommerce HTML Template"></a>
+          <a href="index.html">
+          <img src="{{ Vite::asset('resources/assets/images/logo/freshcart-logo.svg') }}" >
+
+         </a>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="d-block d-lg-none my-4">
@@ -437,8 +439,8 @@
                   </div>
                   <div class="col-lg-3 col-12 mb-4 mb-lg-0">
                     <div class="card border-0">
-                      <img src="assets/images/banner/menu-banner.jpg" alt="eCommerce HTML Template"
-                        class="img-fluid">
+                    <img src="{{ Vite::asset('resources/assets/images/banner/menu-banner.jpg') }}" alt="eCommerce HTML Template" class="img-fluid">
+
                       <div class="position-absolute ps-6 mt-8">
                         <h5 class=" mb-0 ">Dont miss this <br>offer today.</h5>
                         <a href="#" class="btn btn-primary btn-sm mt-3">Shop Now</a>
@@ -781,8 +783,8 @@
           <!-- row -->
           <div class="row align-items-center">
             <div class="col-3 col-md-2">
-              <!-- img --> <img src="assets/images/products/product-img-1.jpg" alt="Ecommerce"
-                class="img-fluid"></div>
+            <img src="{{ Vite::asset('resources/assets/images/products/product-img-1.jpg') }}" alt="Ecommerce" class="img-fluid">
+</div>
             <div class="col-4 col-md-6 col-lg-5">
               <!-- title -->
               <a href="pages/shop-single.html" class="text-inherit">
@@ -827,7 +829,7 @@
           <!-- row -->
           <div class="row align-items-center">
             <div class="col-3 col-md-2">
-            <img src="{{ Vite::asset('resources/assets/images/products/product-img-2.jpg') }}" alt="Ecommerce" class="img-fluid">
+<img src="{{ Vite::asset('resources/assets/images/products/product-img-2.jpg') }}" alt="Ecommerce" class="img-fluid">
 </div>
             <div class="col-4 col-md-6 col-lg-5">
               <!-- title -->
@@ -872,8 +874,9 @@
           <!-- row -->
           <div class="row align-items-center">
             <div class="col-3 col-md-2">
-              <!-- img --> <img src="assets/images/products/product-img-3.jpg" alt="Ecommerce"
-                class="img-fluid"></div>
+            <img src="{{ Vite::asset('resources/assets/images/products/product-img-3.jpg') }}" alt="Ecommerce" class="img-fluid">
+
+              <!-- img --> </div>
             <div class="col-4 col-md-6 col-lg-5">
               <!-- title -->
               <a href="pages/shop-single.html" class="text-inherit">
@@ -917,8 +920,8 @@
           <!-- row -->
           <div class="row align-items-center">
             <div class="col-3 col-md-2">
-              <!-- img --> <img src="assets/images/products/product-img-4.jpg" alt="Ecommerce"
-                class="img-fluid"></div>
+              <!-- img --> <img src="{{ Vite::asset('resources/assets/images/products/product-img-4.jpg') }}" alt="Ecommerce" class="img-fluid">
+</div>
             <div class="col-4 col-md-6 col-lg-5">
               <!-- title -->
               <a href="pages/shop-single.html" class="text-inherit">
@@ -962,8 +965,8 @@
           <!-- row -->
           <div class="row align-items-center">
             <div class="col-3 col-md-2">
-              <!-- img --> <img src="assets/images/products/product-img-5.jpg" alt="Ecommerce"
-                class="img-fluid"></div>
+              <!-- img --> <img src="{{ Vite::asset('resources/assets/images/products/product-img-5.jpg') }}" alt="Ecommerce" class="img-fluid">
+</div>
             <div class="col-4 col-md-6 col-lg-5">
               <!-- title -->
               <a href="pages/shop-single.html" class="text-inherit">
@@ -1126,8 +1129,8 @@
           <div class="item"> <a href="pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-dairy-bread-eggs.jpg" alt="Grocery Ecommerce Template"
-                    class="mb-3 img-fluid">
+                <img src="{{ Vite::asset('resources/assets/images/category/category-dairy-bread-eggs.jpg') }}" class="mb-3 img-fluid" >
+    
                   <div class="text-truncate">Dairy, Bread & Eggs</div>
                 </div>
               </div>
@@ -1135,8 +1138,8 @@
           <div class="item"> <a href="pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-snack-munchies.jpg" alt="Grocery Ecommerce Template"
-                    class="mb-3">
+                <img src="{{ Vite::asset('resources/assets/images/category/category-snack-munchies.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3">
+
                   <div class="text-truncate">Snack & Munchies</div>
                 </div>
               </div>
@@ -1144,8 +1147,10 @@
           <div class="item"> <a href="pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-bakery-biscuits.jpg" alt="Grocery Ecommerce Template"
+                <img src="{{ Vite::asset('resources/assets/images/category/category-bakery-biscuits.jpg') }}"  alt="Grocery Ecommerce Template"
                     class="mb-3">
+
+                 
                   <div class="text-truncate">Bakery & Biscuits</div>
                 </div>
               </div>
@@ -1153,8 +1158,9 @@
           <div class="item"> <a href="pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-instant-food.jpg" alt="Grocery Ecommerce Template"
+                <img src="{{ Vite::asset('resources/assets/images/category/category-instant-food.jpg') }}"  alt="Grocery Ecommerce Template"
                     class="mb-3">
+
                   <div class="text-truncate">Instant Food</div>
                 </div>
               </div>
@@ -1162,8 +1168,9 @@
           <div class="item"> <a href="pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-tea-coffee-drinks.jpg" alt="Grocery Ecommerce Template"
+                <img src="{{ Vite::asset('resources/assets/images/category/category-tea-coffee-drinks.jpg') }}"  alt="Grocery Ecommerce Template"
                     class="mb-3">
+                  
                   <div class="text-truncate">Tea, Coffee & Drinks</div>
                 </div>
               </div>
@@ -1171,7 +1178,8 @@
           <div class="item"><a href="pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-atta-rice-dal.jpg" alt="Grocery Ecommerce Template"
+                  
+                    <img src="{{ Vite::asset('resources/assets/images/category/category-atta-rice-dal.jpg') }}"  alt="Grocery Ecommerce Template"
                     class="mb-3">
                   <div class="text-truncate">Atta, Rice & Dal</div>
                 </div>
@@ -1181,8 +1189,8 @@
           <div class="item"> <a href="pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-baby-care.jpg" alt="Grocery Ecommerce Template"
-                    class="mb-3">
+                <img src="{{ Vite::asset('resources/assets/images/category/category-baby-care.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3">
+
                   <div class="text-truncate">Baby Care</div>
                 </div>
               </div>
@@ -1190,8 +1198,8 @@
           <div class="item"> <a href="pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-chicken-meat-fish.jpg" alt="Grocery Ecommerce Template"
-                    class="mb-3">
+                <img src="{{ Vite::asset('resources/assets/images/category/category-chicken-meat-fish.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3">
+
                   <div class="text-truncate">Chicken, Meat & Fish</div>
                 </div>
               </div>
@@ -1199,8 +1207,8 @@
           <div class="item"> <a href="pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-cleaning-essentials.jpg" alt="Grocery Ecommerce Template"
-                    class="mb-3">
+                <img src="{{ Vite::asset('resources/assets/images/category/category-cleaning-essentials.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3">
+
                   <div class="text-truncate">Cleaning Essentials</div>
                 </div>
               </div>
@@ -1280,8 +1288,8 @@
                   <div class=" position-absolute top-0 start-0">
                     <span class="badge bg-danger">Sale</span>
                   </div>
-                  <a href="#!"> <img src="assets/images/products/product-img-1.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                  <a href="#!"> <img src="{{ Vite::asset('resources/assets/images/products/product-img-1.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
 
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
@@ -1327,8 +1335,8 @@
                   <div class=" position-absolute top-0 start-0">
                     <span class="badge bg-success">14%</span>
                   </div>
-                  <a href="pages/shop-single.html"><img src="assets/images/products/product-img-2.jpg"
-                      alt="Grocery Ecommerce Template" class="mb-3 img-fluid"></a>
+                  <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-2.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1368,9 +1376,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-3.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-3.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1410,9 +1417,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-4.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-4.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1454,9 +1460,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-5.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-5.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1501,8 +1506,8 @@
                   <div class=" position-absolute top-0 start-0">
                     <span class="badge bg-danger">Sale</span>
                   </div>
-                  <a href="#!"> <img src="assets/images/products/product-img-6.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                  <a href="#!"> <img src="{{ Vite::asset('resources/assets/images/products/product-img-6.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1542,9 +1547,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-7.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-7.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1583,9 +1587,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-8.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-8.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1626,9 +1629,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-9.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center position-relative"><a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-9.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid"></a>
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1667,9 +1669,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-10.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center position-relative"> <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-10.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid"></a>
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1734,9 +1735,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center  position-relative "> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-11.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center  position-relative "> <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-11.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
 
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
@@ -1782,9 +1782,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center  position-relative "> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-12.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center  position-relative "> <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-12.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1828,9 +1827,8 @@
           <div class="col">
             <div class="card card-product">
               <div class="card-body">
-                <div class="text-center  position-relative "> <a href="pages/shop-single.html"><img
-                      src="assets/images/products/product-img-13.jpg" alt="Grocery Ecommerce Template"
-                      class="mb-3 img-fluid"></a>
+                <div class="text-center  position-relative "> <a href="pages/shop-single.html"><img src="{{ Vite::asset('resources/assets/images/products/product-img-13.jpg') }}" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+</a>
                   <div class="card-product-action">
                     <a href="#!" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                         class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
@@ -1879,7 +1877,8 @@
         <div class="row">
           <div class="col-md-6 col-lg-3">
             <div class="mb-8 mb-xl-0">
-              <div class="mb-6"><img src="assets/images/icons/clock.svg" alt=""></div>
+              <div class="mb-6"><img src="{{ Vite::asset('resources/assets/images/icons/clock.svg') }}" alt="">
+</div>
               <h3 class="h5 mb-3">
                 10 minute grocery now
               </h3>
@@ -1888,7 +1887,8 @@
           </div>
           <div class="col-md-6  col-lg-3">
             <div class="mb-8 mb-xl-0">
-              <div class="mb-6"><img src="assets/images/icons/gift.svg" alt=""></div>
+              <div class="mb-6"><img src="{{ Vite::asset('resources/assets/images/icons/gift.svg') }}" alt="">
+</div>
               <h3 class="h5 mb-3">Best Prices & Offers</h3>
               <p>Cheaper prices than your local supermarket, great cashback offers to top it off. Get best pricess &
                 offers.
@@ -1897,7 +1897,8 @@
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="mb-8 mb-xl-0">
-              <div class="mb-6"><img src="assets/images/icons/package.svg" alt=""></div>
+              <div class="mb-6"><img src="{{ Vite::asset('resources/assets/images/icons/package.svg') }}" alt="">
+</div>
               <h3 class="h5 mb-3">Wide Assortment</h3>
               <p>Choose from 5000+ products across food, personal care, household, bakery, veg and non-veg & other
                 categories.</p>
@@ -1905,7 +1906,8 @@
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="mb-8 mb-xl-0">
-              <div class="mb-6"><img src="assets/images/icons/refresh-cw.svg" alt=""></div>
+              <div class="mb-6"><img src="{{ Vite::asset('resources/assets/images/icons/refresh-cw.svg') }}" alt="">
+</div>
               <h3 class="h5 mb-3">Easy Returns</h3>
               <p>Not satisfied with a product? Return it at the doorstep & get a refund within hours. No questions asked
                 <a href="#!">policy</a>.</p>
@@ -1942,10 +1944,8 @@
                 "
               >
                 <!-- img -->
-                <img
-                  src="assets/images/products/product-single-img-1.jpg"
-                  alt=""
-            >
+                <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-1.jpg') }}" alt="">
+
               </div>
               <div>
                 <div
@@ -1956,10 +1956,8 @@
                   "
                 >
                   <!-- img -->
-                  <img
-                    src="assets/images/products/product-single-img-2.jpg"
-                    alt=""
-              >
+                  <img src="resources/assets/images/products/product-single-img-2.jpg" alt="">
+
                 </div>
               </div>
               <div>
@@ -1971,10 +1969,8 @@
                   "
                 >
                   <!-- img -->
-                  <img
-                    src="assets/images/products/product-single-img-3.jpg"
-                    alt=""
-              >
+                  <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-3.jpg') }}" alt="">
+
                 </div>
               </div>
               <div>
@@ -1986,10 +1982,8 @@
                   "
                 >
                   <!-- img -->
-                  <img
-                    src="assets/images/products/product-single-img-4.jpg"
-                    alt=""
-              >
+                  <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-4.jpg') }}" alt="">
+
                 </div>
               </div>
             </div>
@@ -1999,37 +1993,29 @@
                 <div class="col-3" class="tns-nav-active">
                   <div class="thumbnails-img">
                     <!-- img -->
-                    <img
-                      src="assets/images/products/product-single-img-1.jpg"
-                      alt=""
-                >
+                    <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-1.jpg') }}" alt="">
+
                   </div>
                 </div>
                 <div class="col-3">
                   <div class="thumbnails-img" >
                     <!-- img -->
-                    <img
-                      src="assets/images/products/product-single-img-2.jpg"
-                      alt=""
-                >
+                    <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-2.jpg') }}" alt="">
+
                   </div>
                 </div>
                 <div class="col-3">
                   <div class="thumbnails-img">
                     <!-- img -->
-                    <img
-                      src="assets/images/products/product-single-img-3.jpg"
-                      alt=""
-                >
+                    <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-3.jpg') }}" alt="">
+
                   </div>
                 </div>
                 <div class="col-3">
                   <div class="thumbnails-img">
                     <!-- img -->
-                    <img
-                      src="assets/images/products/product-single-img-4.jpg"
-                      alt=""
-                >
+                    <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-4.jpg') }}" alt="">
+
                   </div>
                 </div>
               </div>
