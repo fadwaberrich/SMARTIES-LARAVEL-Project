@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/front', function () {
     return view('front/layout');
 });
+Route::get('/back', function () {
+    return view('back/layout');
+});
