@@ -1936,51 +1936,43 @@
           <div class="col-lg-6">
             <!-- img slide -->
             <div class="product productModal" id="productModal">
-              <div
-                class="zoom"
-                onmousemove="zoom(event)"
-                style="
-                  background-image: url(assets/images/products/product-single-img-1.jpg);
-                "
-              >
+            <div
+  class="zoom"
+  onmousemove="zoom(event)"
+  style="background-image: url('{{ Vite::asset('resources/assets/images/products/product-single-img-1.jpg') }}');"
+>
                 <!-- img -->
                 <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-1.jpg') }}" alt="">
 
               </div>
               <div>
-                <div
-                  class="zoom"
-                  onmousemove="zoom(event)"
-                  style="
-                    background-image: url(assets/images/products/product-single-img-2.jpg);
-                  "
-                >
+              <div
+  class="zoom"
+  onmousemove="zoom(event)"
+  style="background-image: url('{{ Vite::asset('resources/assets/images/products/product-single-img-2.jpg') }}');"
+>
                   <!-- img -->
                   <img src="resources/assets/images/products/product-single-img-2.jpg" alt="">
 
                 </div>
               </div>
               <div>
-                <div
-                  class="zoom"
-                  onmousemove="zoom(event)"
-                  style="
-                    background-image: url(assets/images/products/product-single-img-3.jpg);
-                  "
-                >
+              <div
+  class="zoom"
+  onmousemove="zoom(event)"
+  style="background-image: url('{{ Vite::asset('resources/assets/images/products/product-single-img-3.jpg') }}');"
+>
                   <!-- img -->
                   <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-3.jpg') }}" alt="">
 
                 </div>
               </div>
               <div>
-                <div
-                  class="zoom"
-                  onmousemove="zoom(event)"
-                  style="
-                    background-image: url(assets/images/products/product-single-img-4.jpg);
-                  "
-                >
+              <div
+  class="zoom"
+  onmousemove="zoom(event)"
+  style="background-image: url('{{ Vite::asset('resources/assets/images/products/product-single-img-4.jpg') }}');"
+>
                   <!-- img -->
                   <img src="{{ Vite::asset('resources/assets/images/products/product-single-img-4.jpg') }}" alt="">
 

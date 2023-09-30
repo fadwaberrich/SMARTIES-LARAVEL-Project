@@ -91,7 +91,7 @@
                                     <li class="list-group-item px-5 py-4 list-group-item-action active">
                                         <a href="#!" class="text-muted">
                                             <div class="d-flex">
-                                           <img src="../assets/images/avatar/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle ">
+                                            <img src="{{ Vite::asset('resources/assets/images/avatar/avatar-2.jpg') }}" alt="" class="avatar avatar-md rounded-circle">
                                            <div class="ms-4">
                                            <p class="mb-1">
                                                 <span class="text-dark">Your order is placed</span> waiting for shipping
@@ -110,7 +110,7 @@
                                     <li class="list-group-item  px-5 py-4 list-group-item-action">
                                         <a href="#!" class="text-muted">
                                             <div class="d-flex">
-                                           <img src="../assets/images/avatar/avatar-5.jpg" alt="" class="avatar avatar-md rounded-circle ">
+                                            <img src="{{ Vite::asset('resources/assets/img/team-2.jpg') }}" class="avatar avatar-md rounded-circle">
                                            <div class="ms-4">
                                            <p class="mb-1">
                                                 <span class="text-dark">Jitu Chauhan </span> answered to your pending order list with notes
@@ -129,7 +129,7 @@
                                     <li class="list-group-item px-5 py-4 list-group-item-action">
                                         <a href="#!" class="text-muted">
                                             <div class="d-flex">
-                                           <img src="../assets/images/avatar/avatar-2.jpg" alt="" class="avatar avatar-md rounded-circle ">
+                                            <img src="{{ Vite::asset('resources/assets/img/team-1.jpg') }}" class="avatar avatar-md rounded-circle">
                                            <div class="ms-4">
                                            <p class="mb-1">
                                                 <span class="text-dark">You have new messages</span> 2 unread messages
@@ -158,8 +158,7 @@
         </li>
         <li class="dropdown ms-4">
             <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../assets/images/avatar/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle">
-            </a>
+            <img src="{{ Vite::asset('resources/assets/img/team-3.jpg') }}" class="avatar avatar-md rounded-circle">            </a>
 
             <div class="dropdown-menu dropdown-menu-end p-0">
 
@@ -221,7 +220,7 @@
                 <div class="navbar-vertical">
                                 <div class="px-4 py-5">
                                     <a href="../index.html" class="navbar-brand">
-                                        <img src="../assets/images/logo/freshcart-logo.svg" alt="">
+                                    <img src="{{ Vite::asset('resources/assets/images/logo/freshcart-logo.svg') }}" alt="">
                                     </a>
                                 </div>
                                 <div class="navbar-vertical-content flex-grow-1" data-simplebar="">
@@ -460,7 +459,7 @@
                                 <div class="navbar-vertical">
                                                 <div class="px-4 py-5 d-flex justify-content-between align-items-center">
                                                     <a href="../index.html" class="navbar-brand">
-                                                        <img src="../assets/images/logo/freshcart-logo.svg" alt="">
+                                                    <img src="{{ Vite::asset('resources/assets/images/logo/freshcart-logo.svg') }}" alt="">
                                                     </a>
                                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                                 </div>
