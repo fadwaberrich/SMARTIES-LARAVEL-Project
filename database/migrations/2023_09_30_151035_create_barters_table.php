@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('description');
             $table->timestamps();
             
-            // Add foreign key if you have a 'user_id' column for the user relationship
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
         });
     }
