@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,7 @@ Route::get('/front', function () {
 Route::get('/back', function () {
     return view('back/layout');
 });
+
+Route::resource('review-ratings', ReviewController::class);
+
+Route::resource('products', ProductController::class);
