@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarterRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,4 @@ Route::get('/front', function () {
 Route::get('/back', function () {
     return view('back/layout');
 });
+Route::resource("barterRequests", BarterRequestController::class);

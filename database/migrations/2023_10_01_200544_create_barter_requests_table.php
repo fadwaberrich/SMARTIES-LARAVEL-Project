@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('barter_requests', function (Blueprint $table) {
             $table->id();
             $table->text('message');
-            $table->foreignId('barter_id')->constrained('barters')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->unsignedBigInteger('barter_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
+            $table->foreign('barter_id')->references('id')->on('barters');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
