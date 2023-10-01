@@ -1,5 +1,7 @@
 
+@extends('front.layout')
 
+@section('content')
     <h1>Barter Requests</h1>
 
     <a href="{{ route('barterRequests.create') }}" class="btn btn-primary">Create Barter Request</a>
@@ -26,3 +28,4 @@
             @endforeach
         </tbody>
     </table>
+    @endsection

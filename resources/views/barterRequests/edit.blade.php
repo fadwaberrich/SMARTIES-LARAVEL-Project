@@ -1,4 +1,7 @@
 
+@extends('front.layout')
+
+@section('content')
     <h1>Edit Barter Request</h1>
 
     <form method="POST" action="{{ route('barterRequests.update', $barterRequest->id) }}">
@@ -14,3 +17,4 @@
 
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+    @endsection

@@ -790,7 +790,7 @@
     </div>
   </div>
 </div>
-  <main>
+  <main class="p-10">
   @yield('content')
 
   </main>
