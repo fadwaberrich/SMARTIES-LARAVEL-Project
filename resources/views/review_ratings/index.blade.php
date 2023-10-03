@@ -225,12 +225,12 @@
 
 
         <nav class="navbar-vertical-nav d-none d-xl-block ">
-         
+
         </nav>
 
         <nav class="navbar-vertical-nav offcanvas offcanvas-start navbar-offcanvac" tabindex="-1"
             id="offcanvasExample">
-           
+
 
         </nav>
 
@@ -345,21 +345,21 @@
                                                         {{ $reviewRating->created_at }}
                                                     </td>
                                                     <td>
-                                                        <div class="dropdown">
-                                                            <a href="#" class="text-reset"
-                                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                            </a>
 
-                                                            <ul class="dropdown-menu">
-                                                                <li><a class="dropdown-item" href="#"><i
-                                                                            class="bi bi-trash me-3"></i>Delete</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item" href="#"><i
-                                                                            class="bi bi-pencil-square me-3 "></i>Edit</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+
+                                                        <li>
+                                                            <form
+                                                                action="{{ route('review-ratings.destroy', $reviewRating) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-link"><i
+                                                                        class="bi bi-trash me-3"></i>Delete</button>
+                                                            </form>
+
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="{{ route('review-ratings.edit', ['id' => $reviewRating->id]) }}"><i class="bi bi-pencil-square me-3"></i>Modify</a></li>
+
                                                     </td>
                                                 </tr>
                                             @endforeach

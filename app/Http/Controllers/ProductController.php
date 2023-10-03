@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\ReviewController;
 
 class ProductController extends Controller
 {
@@ -23,25 +24,23 @@ class ProductController extends Controller
     // Store a newly created product in the database
     public function store(Request $request)
     {
+        try {
         // Debugging: Dump the contents of the $request object
-        dd($request->all());
     
         // Validate and store product data
         $request->validate([
             'product_name' => 'required|string|max:255',
-            'weight' => 'required|numeric',
-            'category' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'units' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'address' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        
         ]);
     
         $product = Product::create($request->all());
-    
+        } catch (\Exception $e) {
+        dd($e->getMessage());
+    }
+
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
+            
     }
     
 

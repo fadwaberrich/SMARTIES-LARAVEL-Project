@@ -276,6 +276,11 @@
                                         <label class="form-label">Product Category</label>
                                         <input type="text" class="form-control" name="category" placeholder="Product Category" required>
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Product Price/Value</label>
+                                        <input type="text" class="form-control" name="price" placeholder="Product Category" required>
+                                    </div>
                                     <!-- input -->
                                     <div class="mb-3">
                                         <label class="form-label">Weight</label>
@@ -305,10 +310,7 @@
                                         <input type="text" class="form-control" name="address" placeholder="Address">
                                     </div>
                                     <!-- input -->
-                                    <div class="form-check form-switch mb-4">
-                                        <input class="form-check-input" type="checkbox" name="status" id="flexSwitchStock" checked>
-                                        <label class="form-check-label" for="flexSwitchStock">In Stock</label>
-                                    </div>
+                                 
                                     <!-- button -->
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-primary">Create Product</button>

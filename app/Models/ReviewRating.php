@@ -14,8 +14,12 @@ class ReviewRating extends Model
         'star_rating',
         'status',
     ];
-    
-    
+    public function product()
+{
+    return $this->belongsTo(Product::class);
+}
+protected $guarded = ['_token'];
+
 
     // You can define any relationships or additional methods here
 }

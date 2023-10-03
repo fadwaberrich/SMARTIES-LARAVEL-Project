@@ -26,5 +26,5 @@ Route::get('/back', function () {
 });
 
 Route::resource('review-ratings', ReviewController::class);
-
+Route::get('review-ratings/{id}/edit', 'ReviewController@edit')->name('review-ratings.edit');
 Route::resource('products', ProductController::class);

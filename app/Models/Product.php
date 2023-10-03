@@ -19,7 +19,7 @@ class Product extends Model
         'description',
         'address',
         'image',
-        'status',
+        'status', // If 'status' is part of the form data
     ];
 
     protected $guarded = ['_token'];

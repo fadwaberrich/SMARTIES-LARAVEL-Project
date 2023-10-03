@@ -288,8 +288,11 @@
                                                 <span class="text-truncate">{{ $reviewRating->comments }}</span>
                                             </div>
                                             <div class="form-check form-switch mb-4">
-                                                <input class="form-check-input" type="checkbox" name="status" id="flexSwitchStatus" {{ $reviewRating->status === 'active' ? 'checked' : '' }}>                                                <label class="form-check-label" for="flexSwitchStatus">Status</label>
+                                                <input class="form-check-input" type="checkbox" name="status" id="flexSwitchStatus" {{ $reviewRating->status === 'active' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="flexSwitchStatus">Active</label>
                                             </div>
+                                            
+                                            
                                             
                                             <div>
                                                 <label for="form-label">Product ID</label>

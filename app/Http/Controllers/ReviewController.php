@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ReviewRating;
+use App\Http\ProductController;
 
 class ReviewController extends Controller
 {
@@ -26,16 +27,16 @@ class ReviewController extends Controller
         $request->validate([
             'product_id' => 'required',
             'star_rating' => 'required|integer|min:1|max:5',
-            'status' => 'required|in:active,deactive',
+            'comments' => 'required|string',
             // Add other validation rules as needed
         ]);
-
+    
+        // If validation passes, create the review
         ReviewRating::create($request->all());
-
-        return redirect()->route('review-ratings.index')
-            ->with('success', 'Review rating created successfully.');
+    
+        return back()->with('success', 'Review rating created successfully.');
     }
-
+    
     // Display the specified review rating
     public function show(ReviewRating $reviewRating)
     {
@@ -51,31 +52,30 @@ class ReviewController extends Controller
     // Update the specified review rating in the database
     public function update(Request $request, ReviewRating $reviewRating)
     {
-        try {
-            // Debugging: Output the received data from the form
+        // Debugging: Dump the contents of the $request object
+        dd($request->all());
     
-            $request->validate([
-                'product_id' => 'required',
-                // Remove 'status' validation as it's a checkbox
-            ]);
+        $request->validate([
+            'product_id' => 'required',
+            // Remove 'status' validation as it's a checkbox
+        ]);
     
-            // Check if the checkbox is checked, and set the 'status' accordingly
-            $reviewRating->status = $request->has('status') ? 'active' : 'deactive';
-    
-            // Debugging: Output the current status value
-            echo "Current Status: " . $reviewRating->status;
-    
-            $reviewRating->update($request->all());
-    
-            // Debugging: Output a success message
-            echo "Review rating updated successfully.";
-    
-            return redirect()->route('review-ratings.index')
-                ->with('success', 'Review rating updated successfully.');
-        } catch (\Exception $e) {
-            // Debugging: Output any exceptions that may occur
-            dd($e);
+        // Debugging: Output a message to indicate the status
+        if ($request->input('status') === 'active') {
+            echo "Status is active.";
+        } else {
+            echo "Status is deactive.";
         }
+    
+        // Check if the checkbox is checked, and set the 'status' accordingly
+        $reviewRating->status = $request->has('status') ? 'active' : 'deactive';    
+        // Debugging: Dump the contents of the updated reviewRating
+    
+        $reviewRating->update($request->all());
+    
+    
+        return redirect()->route('review-ratings.index')
+            ->with('success', 'Review rating updated successfully.');
     }
     
     

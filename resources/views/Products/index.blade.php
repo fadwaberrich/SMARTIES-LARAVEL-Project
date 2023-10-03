@@ -307,379 +307,52 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($products as $product)
                   <tr>
-
                     <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productOne">
-                        <label class="form-check-label" for="productOne">
-
-                        </label>
-                      </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="productOne">
+                        </div>
                     </td>
                     <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-1.jpg" alt=""
-                          class="icon-shape icon-md"></a>
+                        <a href="#!"> <img src="../assets/images/products/product-img-1.jpg" alt="" class="icon-shape icon-md"></a>
                     </td>
-                    <td><a href="#" class="text-reset">Haldiram's Sev Bhujia</a></td>
-                    <td>Snack & Munchies</td>
-
+                    <td><a href="#" class="text-reset">{{ $product->product_name }}</a></td>
+                    <td>{{ $product->category }}</td>
+                
                     <td>
-                      <span class="badge bg-light-primary text-dark-primary">Active</span>
-                    </td>
-                    <td>$18.00</td>
-                    <td>24 Nov 2022</td>
+                      @if ($product->status === 'active')
+                          <span class="badge bg-success text-white">Active</span>
+                      @else
+                          <span class="badge bg-danger text-white">Deactive</span>
+                      @endif
+                  </td>
+                  
+                    <td>${{ $product->price }}</td>
+                    <td>{{ $product->created_at->format('d M Y') }}</td>
                     <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-                        </ul>
-                      </div>
+                        <div>
+                           
+                          <li>
+                            <form action="{{ route('products.destroy', $product) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="dropdown-item"><i class="bi bi-trash me-3"></i>Delete</button>
+                            </form>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ route('products.edit', $product) }}"><i class="bi bi-pencil-square me-3"></i>Edit</a></li>                        </div>
                     </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productTwo">
-                        <label class="form-check-label" for="productTwo">
-
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-2.jpg" alt=""
-                          class="icon-shape icon-md"></a>
-                    </td>
-                    <td><a href="#" class="text-reset">NutriChoice Digestive</a></td>
-                    <td>Bakery & Biscuits</td>
-
-                    <td>
-                      <span class="badge bg-light-primary text-dark-primary">Active</span>
-                    </td>
-                    <td>$24.00</td>
-                    <td>20 Nov 2022</td>
-                    <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productThree">
-                        <label class="form-check-label" for="productThree">
-
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-3.jpg" alt=""
-                          class="icon-shape icon-md"></a>
-                    </td>
-                    <td><a href="#" class="text-reset">Cadbury 5 Star Chocolate</a></td>
-                    <td>Snack & Munchies</td>
-
-                    <td>
-                      <span class="badge bg-light-primary text-dark-primary">Active</span>
-                    </td>
-                    <td>$3.00</td>
-                    <td>14 Nov 2022</td>
-                    <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productFour">
-                        <label class="form-check-label" for="productFour">
-
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-4.jpg" alt=""
-                          class="icon-shape icon-md"></a>
-                    </td>
-                    <td><a href="#" class="text-reset">Onion Flavour Potato</a></td>
-                    <td>Snack & Munchies</td>
-
-                    <td>
-                      <span class="badge bg-light-warning text-dark-warning">Draft</span>
-                    </td>
-                    <td>$13.00</td>
-                    <td>08 Nov 2022</td>
-                    <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productFive">
-                        <label class="form-check-label" for="productFive">
-
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-5.jpg" alt=""
-                          class="icon-shape icon-md"></a>
-                    </td>
-                    <td><a href="#" class="text-reset">Salted Instant Popcorn</a></td>
-                    <td>Instant Food</td>
-
-                    <td>
-                      <span class="badge bg-light-warning text-dark-warning">Draft</span>
-                    </td>
-                    <td>$9.00</td>
-                    <td>09 Nov 2022</td>
-                    <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productSix">
-                        <label class="form-check-label" for="productSix">
-
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-6.jpg" alt=""
-                          class="icon-shape icon-md"></a>
-                    </td>
-                    <td><a href="#" class="text-reset">Blueberry Greek Yogurt</a></td>
-                    <td>Dairy, Bread & Eggs</td>
-
-                    <td>
-                      <span class="badge bg-light-danger text-dark-danger">Deactive</span>
-                    </td>
-                    <td>$11.00</td>
-                    <td>02 Nov 2022</td>
-                    <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productSeven">
-                        <label class="form-check-label" for="productSeven">
-
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-7.jpg" alt=""
-                          class="icon-shape icon-md"></a>
-                    </td>
-                    <td><a href="#" class="text-reset">Britannia Cheese Slices</a></td>
-                    <td>Dairy, Bread & Eggs</td>
-
-                    <td>
-                      <span class="badge bg-light-success text-dark-success">Active</span>
-                    </td>
-                    <td>$24.00</td>
-                    <td>15 Oct 2022</td>
-                    <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productEight">
-                        <label class="form-check-label" for="productEight">
-
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-8.jpg" alt=""
-                          class="icon-shape icon-md"></a>
-                    </td>
-                    <td><a href="#" class="text-reset">Blueberry Greek Yogurt</a></td>
-                    <td>Instant Food</td>
-
-                    <td>
-                      <span class="badge bg-light-danger text-dark-danger">Deactive</span>
-                    </td>
-                    <td>$12.00</td>
-                    <td>24 Oct 2022</td>
-                    <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productNine">
-                        <label class="form-check-label" for="productNine">
-
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-9.jpg" alt=""
-                          class="icon-shape icon-md"></a>
-                    </td>
-                    <td><a href="#" class="text-reset">Slurrp Millet Chocolate</a></td>
-                    <td>Instant Food</td>
-
-                    <td>
-                      <span class="badge bg-light-primary text-dark-primary">Active</span>
-                    </td>
-                    <td>$8.00</td>
-                    <td>08 Oct 2022</td>
-                    <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="productTen">
-                        <label class="form-check-label" for="productTen">
-
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="#!"> <img src="../assets/images/products/product-img-10.jpg" alt=""
-                          class="icon-shape icon-md"></a>
-                    </td>
-                    <td><a href="#" class="text-reset">Amul Butter - 500 g</a></td>
-                    <td>Instant Food</td>
-
-                    <td>
-                      <span class="badge bg-light-primary text-dark-primary">Active</span>
-                    </td>
-                    <td>$8.00</td>
-                    <td>09 Oct 2022</td>
-                    <td>
-                      <div class="dropdown">
-                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="feather-icon icon-more-vertical fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-3"></i>Delete</a></li>
-                          <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-3 "></i>Edit</a>
-                          </li>
-
-
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-
-
-
-
+                </tr> 
+                  @endforeach
+                
+             
+        
                 </tbody>
               </table>
 
             </div>
           </div>
-          <div class=" border-top d-md-flex justify-content-between align-items-center px-6 py-6">
-            <span>Showing 1 to 8 of 12 entries</span>
-            <nav class="mt-2 mt-md-0">
-              <ul class="pagination mb-0 ">
-                <li class="page-item disabled"><a class="page-link " href="#!">Previous</a></li>
-                <li class="page-item"><a class="page-link active" href="#!">1</a></li>
-                <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                <li class="page-item"><a class="page-link" href="#!">Next</a></li>
-              </ul>
-            </nav>
-          </div>
+
         </div>
 
       </div>
