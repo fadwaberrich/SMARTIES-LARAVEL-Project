@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarterRequestController;
-
+use App\Http\Controllers\EventController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +24,5 @@ Route::get('/back', function () {
     return view('back/layout');
 });
 Route::resource("barterRequests", BarterRequestController::class);
+Route::resource('events', EventController::class);
+
