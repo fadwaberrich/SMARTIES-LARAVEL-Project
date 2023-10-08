@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('form_id'); 
-            $table->string('idForm');
             $table->text('cause');
             $table->timestamps();
             $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');

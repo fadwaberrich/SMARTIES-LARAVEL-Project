@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarterRequestController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::get('/back', function () {
     return view('back/layout');
 });
 Route::resource("barterRequests", BarterRequestController::class);
+Route::resource('forms', FormController::class);
+
+
