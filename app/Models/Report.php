@@ -9,8 +9,10 @@ class Report extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'cause',
+        'title',
+        'description',
         'form_id',
+        'report', // Add 'report' to the fillable attributes
 
     ];
 
@@ -18,5 +20,6 @@ class Report extends Model
     {
         return $this->belongsTo(Form::class, 'form_id');
     }
+    
 
 }

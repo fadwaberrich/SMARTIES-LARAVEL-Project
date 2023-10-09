@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarterRequestController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ReportController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +28,9 @@ Route::get('/back', function () {
 });
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource('forms', FormController::class);
+Route::resource('reports', ReportController::class);
+Route::post('reports', [ReportController::class, 'store'])->name('reports.store');
+Route::get('/forms/{form}/create-report', [ReportController::class, 'create'])->name('reports.create');
 
+Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 

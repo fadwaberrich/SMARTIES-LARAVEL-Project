@@ -14,4 +14,15 @@ class Form extends Model
         'receiverName',
         'description',
     ];
+
+    protected $casts = [
+        'reported' => 'boolean',
+    ];
+    
+    public function reports()
+{
+    return $this->hasMany(Report::class, 'form_id');
+}
+    
+
 }

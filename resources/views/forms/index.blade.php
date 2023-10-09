@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- Include the csrf-token here -->
-    <title>Your Page Title</title>
-</head>
 <div class="container">
     <h1>Forms</h1>
     
@@ -32,8 +24,12 @@
                     <td>{{ $form->description }}</td>
                     <td>
                         <a href="{{ route('forms.edit', $form->id) }}" class="btn btn-primary">Edit</a>
-                        <button class="btn btn-danger" onclick="deleteForm({{ $form->id }})">Delete</button>
-                    </td>
+                        
+                        <a href="{{ route('forms.show', ['form' => $form->id]) }}" class="btn btn-info">Show</a>
+        </td>                        
+        <td>
+        <button class="btn btn-danger" onclick="deleteForm({{ $form->id }})">Delete</button>
+    </td>                    </td>
                 </tr>
             @empty
                 <tr>
