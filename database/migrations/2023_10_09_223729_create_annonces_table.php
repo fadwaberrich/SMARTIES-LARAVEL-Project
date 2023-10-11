@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_categorie');
+            $table->unsignedBigInteger('id_user')->nullable();
             $table->string('titre');
             $table->text('description');
             $table->string('telephone');
@@ -23,6 +24,7 @@ return new class extends Migration
 
             // Définition de la clé étrangère
            $table->foreign('id_categorie')->references('id')->on('categories');
+           $table->foreign('id_user')->references('id')->on('users')->nullable(); // Autoriser NULL dans la clé étrangère
         });
     }
 
