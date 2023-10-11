@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('barter_requests', function (Blueprint $table) {
             $table->id();
             $table->text('message');
+            $table->text('title');
+            $table->decimal('price', 10, 2); // Add the "price" column with 10 total digits and 2 decimal places
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('barter_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
