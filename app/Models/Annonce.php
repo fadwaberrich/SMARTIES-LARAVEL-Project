@@ -9,8 +9,9 @@ class Annonce extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'id_category',
-    'titre',
+     'id_category',
+     'id_user',
+     'titre',
      'description',
      'telephone',
      'photo',
@@ -19,6 +20,11 @@ class Annonce extends Model
  public function category()
 {
 return $this->belongsTo(Category::class, 'id_categorie');
+}
+
+public function user()
+{
+    return $this->belongsTo(User::class, 'id_user');
 }
    
 }
