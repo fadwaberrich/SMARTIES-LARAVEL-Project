@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_categorie');
-            $table->unsignedBigInteger('id_user')->nullable();
+            $table->unsignedBigInteger('id_user')->nullable();;
             $table->string('titre');
             $table->text('description');
             $table->string('telephone');
