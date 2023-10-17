@@ -741,13 +741,20 @@
                         @csrf
                         @method('post')
                         <label for="name">Name:</label>
-                        <input type="text" id="nomCategorie" name="name" required><br><br>
+                        <input style="margin-bottom: 5px;" type="text" id="nomCategorie" name="name" required><br><br>
+                       
                 
-                        <label for="description">Description:</label><br>
+                        <label   for="description">Description:</label><br>
                         <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
                 
                         <input type="submit" value="Add Category">
                     </form>
+                    @error('name')
+                    
+                    <span style="margin:40px 40%;"class="text-danger">{{ $message }}</span>
+                
+                    @enderror
+                    <br/>
                 </section>
             </main>
         </div>

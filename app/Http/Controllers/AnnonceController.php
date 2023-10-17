@@ -33,11 +33,18 @@ class AnnonceController extends Controller
         $validatedData = $request->validate([
             
             'id_categorie'=>'nullable|required',
-            'titre' => 'required',
-            'description' => 'required',
-            'telephone' => 'required',
-            'photo' => 'nullable|image',
-            'echange' => 'required',
+            'id_user'=>'nullable|required',
+            'titre' => 'required|string',
+            'description' => 'required|string',
+            'telephone' => 'required|numeric',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'echange' => 'required|string', ], [
+            'titre.required' => 'Le champ titre est obligatoire.',
+             
+            'description.required' => 'Le champ description est obligatoire.',
+           
+            'telephone.required' => 'Le champ téléphone est obligatoire.',
+            'telephone.numeric' => 'Le champ téléphone doit être un numéro.',
         ]);
 
         if ($request->hasFile('photo')) {
