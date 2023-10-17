@@ -44,6 +44,11 @@ Route::delete('/category/{category}/destroy',[CategoryController::class,'destroy
 #Route::get('/Annonce/form',[AnnonceController::class,'form'])->name('formAnnonce');
 #Route::get('/Annonce/showAnnonce',[AnnonceController::class,'showAnnonce'])->name('showAnnonce');
 #Route::post('/Annonces',[AnnonceController::class,'store'])->name('addAnnonce');
-Route::resource('annonces', AnnonceController::class);
-Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
 
+Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
+//Route::get('/annonces/showBack', [AnnonceController::class,'showBack'])->name('annonces.showBack');
+
+
+Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
+Route::delete('/annonces/{annonce}/destroyBack',[AnnonceController::class, 'destroyBack'])->name('destroyBack');
+Route::resource('annonces', AnnonceController::class);

@@ -372,6 +372,8 @@
                 Annonces
               </a>
               <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{route('annonces.create')}}">Déposer une annonce</a></li>
+                <li><a class="dropdown-item" href="{{route('annonces.index')}}">Afficher mes annonces</a></li>
              
                 
               </ul>

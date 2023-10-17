@@ -24,16 +24,25 @@
                         <div class="form-group">
                             <label for="titre">Titre </label>
                             <input type="text" name="titre" class="form-control">
+                            @error('titre')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="description"> Description </label>
                             <textarea name="description" class="form-control"></textarea>
+                            @error('description')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="telephone">Téléphone de contact</label>
                             <input type="text" name="telephone" class="form-control">
+                            @error('telephone')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">

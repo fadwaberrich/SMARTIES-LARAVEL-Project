@@ -15,6 +15,11 @@ class AnnonceController extends Controller
         $annonces = Annonce::all();
         return view('Annonce.ShowAnnonce', compact('annonces'));
     }
+    public function Back()
+    {
+        $annonces = Annonce::all();
+        return view('back.ShowAnnonceBack', compact('annonces'));
+    }
 
     public function create()
     {
@@ -28,11 +33,18 @@ class AnnonceController extends Controller
         $validatedData = $request->validate([
             
             'id_categorie'=>'nullable|required',
-            'titre' => 'required',
-            'description' => 'required',
-            'telephone' => 'required',
-            'photo' => 'nullable|image',
-            'echange' => 'required',
+            'id_user'=>'nullable|required',
+            'titre' => 'required|string',
+            'description' => 'required|string',
+            'telephone' => 'required|numeric',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'echange' => 'required|string', ], [
+            'titre.required' => 'Le champ titre est obligatoire.',
+             
+            'description.required' => 'Le champ description est obligatoire.',
+           
+            'telephone.required' => 'Le champ téléphone est obligatoire.',
+            'telephone.numeric' => 'Le champ téléphone doit être un numéro.',
         ]);
 
         if ($request->hasFile('photo')) {
@@ -51,6 +63,7 @@ class AnnonceController extends Controller
     {
         return view('annonces.show', compact('annonce'));
     }
+    
 
     public function edit(Annonce $annonce)
    
@@ -87,23 +100,38 @@ class AnnonceController extends Controller
 
         return redirect()->route('annonces.index')->with('success', 'Annonce deleted successfully');
     }
+
+
+
+
+    public function destroyBack(Annonce $annonce)
+    {
+        $annonce->delete();
+        $annonces = Annonce::all();
+        return view('back.ShowAnnonceBack', compact('annonces'));
+        
+    }
+
+
+
+
+
     public function search(Request $request)
 {
     $search = $request->input('search');
     
     // Affichez le terme de recherche pour vérification
-    dd($search);
+  
 
     // Effectuez la recherche en utilisant le titre de l'annonce
     $annonces = Annonce::where('titre', 'like', '%' . $search . '%')->get();
 
     // Affichez les résultats intermédiaires pour vérification
-    dd($annonces);
+   
 
-    return view('annonces.search', compact('annonces', 'search'));
+    return view('Annonce.Find', compact('annonces', 'search'));
 }
 
 
-   
 
 }

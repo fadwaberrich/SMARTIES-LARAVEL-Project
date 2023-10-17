@@ -17,9 +17,15 @@ class CategoryController extends Controller
     public function add(Request $request){
 
        $data =$request->validate([
-        'name'=>'required',
-        'description'=>'required',
-       ]);
+        'name'=>'required|unique:categories,name',
+        'description'=>'required',],
+
+        [
+            'name.required' => 'Le champ name est obligatoire.',
+            'name.unique' => 'Cette catégorie existe déjà.',
+             
+        'description.required' => 'Le champ description est obligatoire.',]
+       );
        $newCategory=category::create($data);
        return redirect(route('showCategory'));
 
