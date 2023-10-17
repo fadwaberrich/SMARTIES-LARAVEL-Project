@@ -369,21 +369,11 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Shop
+                Annonces
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="pages/shop-grid.html">Shop Grid - Filter</a></li>
-                <li><a class="dropdown-item" href="pages/shop-grid-3-column.html">Shop Grid - 3 column</a>
-                </li>
-                <li><a class="dropdown-item" href="pages/shop-list.html">Shop List - Filter</a></li>
-                <li><a class="dropdown-item" href="pages/shop-filter.html">Shop - Filter</a></li>
-                <li><a class="dropdown-item" href="pages/shop-fullwidth.html">Shop Wide</a></li>
-                <li><a class="dropdown-item" href="pages/shop-single.html">Shop Single</a></li>
-                <li><a class="dropdown-item" href="pages/shop-single-2.html">Shop Single v2<span
-                      class="badge bg-light-info text-dark-info ms-1">New</span></a></li>
-                <li><a class="dropdown-item" href="pages/shop-wishlist.html">Shop Wishlist</a></li>
-                <li><a class="dropdown-item" href="pages/shop-cart.html">Shop Cart</a></li>
-                <li><a class="dropdown-item" href="pages/shop-checkout.html">Shop Checkout</a></li>
+             
+                
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -889,32 +879,18 @@
         <div class="col-lg-5 text-lg-start text-center mb-2 mb-lg-0">
           <ul class="list-inline mb-0">
             <li class="list-inline-item text-dark">Payment Partners</li>
-            <li class="list-inline-item">
-              <a href="#!"><img src="assets/images/payment/amazonpay.svg" alt=""></a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#!"><img src="assets/images/payment/american-express.svg" alt=""></a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#!"><img src="assets/images/payment/mastercard.svg" alt=""></a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#!"><img src="assets/images/payment/paypal.svg" alt=""></a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#!"><img src="assets/images/payment/visa.svg" alt=""></a>
-            </li>
+           
+           
+           
+           
+            
           </ul>
         </div>
         <div class="col-lg-7 mt-4 mt-md-0">
           <ul class="list-inline mb-0 text-lg-end text-center">
             <li class="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with FreshCart</li>
-            <li class="list-inline-item ms-4">
-              <a href="#!"> <img src="assets/images/appbutton/appstore-btn.svg" alt=""
-                  style="width: 140px;"></a></li>
-            <li class="list-inline-item">
-              <a href="#!"> <img src="assets/images/appbutton/googleplay-btn.svg" alt=""
-                  style="width: 140px;"></a></li>
+            
+         
           </ul>
         </div>
       </div>

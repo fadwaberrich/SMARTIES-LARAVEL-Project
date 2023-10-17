@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\BarterRequestController;
 use App\Http\Controllers\EventController;
+use  App\Http\Controllers\AnnonceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +37,13 @@ Route::post('/category',[CategoryController::class,'add'])->name('addCategory');
 Route::get('/category/{category}/edit',[CategoryController::class,'edit'])->name('formEditCategory');
 Route::put('/category/{category}/update',[CategoryController::class,'update'])->name('EditCategory');
 Route::delete('/category/{category}/destroy',[CategoryController::class,'destroy'])->name('DeleteCategory');
-Route::get('/category/search',[CategoryController::class,'search'])->name('searchCategory');
+//Route::get('/category/search',[CategoryController::class,'search'])->name('searchCategory');
 
-Route::resource("barterRequests", BarterRequestController::class);
-Route::resource('events', EventController::class);
+####annonce
 
+#Route::get('/Annonce/form',[AnnonceController::class,'form'])->name('formAnnonce');
+#Route::get('/Annonce/showAnnonce',[AnnonceController::class,'showAnnonce'])->name('showAnnonce');
+#Route::post('/Annonces',[AnnonceController::class,'store'])->name('addAnnonce');
+Route::resource('annonces', AnnonceController::class);
+Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
 

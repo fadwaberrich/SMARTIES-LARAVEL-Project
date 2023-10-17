@@ -9,7 +9,7 @@ class Annonce extends Model
 {
     use HasFactory;
     protected $fillable = [
-     'id_category',
+     'id_categorie',
      'id_user',
      'titre',
      'description',
