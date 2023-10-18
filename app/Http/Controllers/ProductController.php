@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Annonce;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\ReviewController;
@@ -16,31 +17,24 @@ class ProductController extends Controller
     }
 
     // Show the form for creating a new product
-    public function create()
+    public function create(Request $request)
     {
-        return view('products.create');
+        $Annonce = Annonce::find($request->annonce_id);
+        return view('products.create',compact('Annonce'));;
     }
 
     // Store a newly created product in the database
     public function store(Request $request)
     {
-        try {
-        // Debugging: Dump the contents of the $request object
+     
+            $request->validate([
+                'product_name' => 'required|string|max:255',
+                // Add validation for other fields if needed
+            ]);
+            $product = new Product($request->all());
+            $product->save();
+            return redirect()->route('products.index')->with('success', 'Product created successfully.');
     
-        // Validate and store product data
-        $request->validate([
-            'product_name' => 'required|string|max:255',
-        
-        ]);
-    
-        $product = Product::create($request->all());
-        } catch (\Exception $e) {
-        dd($e->getMessage());
-    }
-
-        return redirect()->route('products.index')
-            ->with('success', 'Product created successfully.');
-            
     }
     
 

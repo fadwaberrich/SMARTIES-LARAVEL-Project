@@ -31,9 +31,8 @@ class AnnonceController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            
-            'id_categorie'=>'required',
-            'id_user'=>'nullable',
+            'id_categorie'=>'nullable|required',
+            'id_user'=>'nullable|required',
             'titre' => 'required|string',
             'description' => 'required|string',
             'telephone' => 'required|numeric',
@@ -55,9 +54,9 @@ class AnnonceController extends Controller
         
    
 
-       Annonce::create($validatedData);
-
-        return redirect()->route('annonces.index')->with('success', 'Annonce created successfully');
+        $announcement = Annonce::create($validatedData);
+        $announcementId = $announcement->id;
+        return redirect()->route('products.create', ['annonce_id' => $announcementId]);
     }
 
     public function show(Annonce $annonce)

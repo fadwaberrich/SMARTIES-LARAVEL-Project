@@ -10,6 +10,7 @@
                         <form action="{{ route('annonces.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="id_user" value="{{Auth::user()->id }}">
+
                             <div class="form-group">
                                 <label for="id_categorie">Catégorie</label>
                                 <select name="id_categorie" class="form-control">
@@ -56,7 +57,7 @@
                                 <input type="text" name="echange" class="form-control">
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                            <button type="submit" class="btn btn-primary">Ajouter votre produit</button>
                         </form>
                     </div>
                 </div>

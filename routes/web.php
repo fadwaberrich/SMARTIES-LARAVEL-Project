@@ -60,6 +60,7 @@ Route::get('/category/search', [CategoryController::class, 'search'])->name('sea
 
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource('events', EventController::class);
+Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('products.create');
 Route::resource('products', ProductController::class);
 Route::middleware('auth')->group(function () {
     Route::resource('annonces', AnnonceController::class);

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $table = 'product'; // Specify the table name if it's different from the model's plural name
+    protected $table = 'products'; // Specify the table name if it's different from the model's plural name
     use HasFactory;
 
     protected $fillable = [
@@ -20,6 +20,7 @@ class Product extends Model
         'address',
         'image',
         'status', // If 'status' is part of the form data
+        'annonce_id',
     ];
     public function reviewRatings()
     {

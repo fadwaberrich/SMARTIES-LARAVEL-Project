@@ -266,7 +266,7 @@
                                 <h4 class="mb-4 h5">Product Information</h4>
                                 <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <!-- input -->
+                                    <input type="hidden" name="annonce_id" value="{{ request('annonce_id') }}">
                                     <div class="mb-3">
                                         <label class="form-label">Product Name</label>
                                         <input type="text" class="form-control" name="product_name" placeholder="Product Name" required>
