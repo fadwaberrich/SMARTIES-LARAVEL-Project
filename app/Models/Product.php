@@ -21,7 +21,15 @@ class Product extends Model
         'image',
         'status', // If 'status' is part of the form data
     ];
-
+    public function reviewRatings()
+    {
+        return $this->hasMany(ReviewRating::class);
+    }
+    public function annonce()
+    {
+        return $this->belongsTo(Annonce::class, 'annonce_id');
+    }
+    
     protected $guarded = ['_token'];
 }
 

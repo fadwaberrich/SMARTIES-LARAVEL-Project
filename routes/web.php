@@ -61,8 +61,9 @@ Route::get('/category/search', [CategoryController::class, 'search'])->name('sea
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource('events', EventController::class);
 Route::resource('products', ProductController::class);
-Route::resource('annonces', AnnonceController::class);
-Route::resource('venuess', VenueController::class);
+Route::middleware('auth')->group(function () {
+    Route::resource('annonces', AnnonceController::class);
+});Route::resource('venuess', VenueController::class);
 
 
 require __DIR__ . '/auth.php';
