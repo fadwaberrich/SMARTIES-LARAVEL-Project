@@ -8,7 +8,7 @@
 
 
    <!-- Formulaire de recherche -->
-   <form action="{{ route('Search') }}" method="GET" class="mb-3">
+   <form action="" method="GET" class="mb-3">
     @csrf
     <div class="input-group">
         <input type="text" name="search" class="form-control" placeholder="Rechercher par titre">

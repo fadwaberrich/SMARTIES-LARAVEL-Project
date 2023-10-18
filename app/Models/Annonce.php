@@ -21,6 +21,10 @@ class Annonce extends Model
 {
 return $this->belongsTo(Category::class, 'id_categorie');
 }
+public function product()
+{
+    return $this->hasOne(Product::class, 'annonce_id');
+}
 
 public function user()
 {

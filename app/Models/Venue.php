@@ -18,4 +18,8 @@ class Venue extends Model
         'email',
         'image',
     ];
+    public function events()
+{
+    return $this->hasMany(Event::class);
+}
 }

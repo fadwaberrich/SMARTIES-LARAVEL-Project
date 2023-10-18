@@ -11,6 +11,9 @@ class BarterRequest extends Model
     
     protected $fillable = [
         'message',
+        'price',
+        'title',
+        'image',
         'barter_id', 
         'user_id',  
     ];
