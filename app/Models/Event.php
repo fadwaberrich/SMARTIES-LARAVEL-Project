@@ -16,5 +16,12 @@ class Event extends Model
         'ticket_price',
         'image',
         'status',
+        'venue_id', // Make sure 'venue_id' is included here
+
     ];
+
+    public function venue()
+{
+    return $this->belongsTo(Venue::class);
+}
 }
