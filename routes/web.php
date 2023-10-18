@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AnnonceController;
+use App\Http\Controllers\VenueController;
+
 
 
 use App\Http\Controllers\CategoryController;
@@ -58,6 +61,8 @@ Route::get('/category/search', [CategoryController::class, 'search'])->name('sea
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource('events', EventController::class);
 Route::resource('products', ProductController::class);
-    
+Route::resource('annonces', AnnonceController::class);
+Route::resource('venuess', VenueController::class);
+
 
 require __DIR__ . '/auth.php';
