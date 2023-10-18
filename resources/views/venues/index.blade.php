@@ -1,6 +1,9 @@
-@extends('front.layout')
+@extends('back.layout')
 
 @section('content')
+<div class="container" style="margin-top: 30px;">
+
+    
     <h1>Venue List</h1>
 
     <a href="{{ route('venuess.create') }}" class="btn btn-primary">Create Venue</a>
@@ -45,4 +48,5 @@
             @endforeach
         </tbody>
     </table>
+</div>
 @endsection

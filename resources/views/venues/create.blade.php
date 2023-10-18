@@ -1,6 +1,9 @@
-@extends('front.layout')
+@extends('back.layout')
 
 @section('content')
+<div class="container" style="margin-top: 30px;">
+
+    
     <h1>Create Venue</h1>
 
     <form method="POST" action="{{ route('venuess.store') }}" enctype="multipart/form-data">
@@ -48,4 +51,5 @@
 
         <button type="submit" class="btn btn-primary">Create Venue</button>
     </form>
+</div>
 @endsection
