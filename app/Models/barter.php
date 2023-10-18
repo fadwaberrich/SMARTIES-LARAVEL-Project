@@ -29,4 +29,8 @@ class barter extends Model
     {
         return $this->belongsTo(category::class);
     }
+    public function barterRequests()
+{
+    return $this->hasMany(BarterRequest::class);
+}
   }

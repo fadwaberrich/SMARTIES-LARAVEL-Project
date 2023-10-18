@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProductController;
 
+
+use App\Http\Controllers\CategoryController;
+
+
+use App\Http\Controllers\BarterRequestController;
+use App\Http\Controllers\EventController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +45,19 @@ Route::get('/back', function () {
 });
 Route::resource('review-ratings', ReviewController::class);
 Route::get('review-ratings/{id}/edit', 'ReviewController@edit')->name('review-ratings.edit');
+
+
+Route::get('/category', [CategoryController::class, 'show'])->name('showCategory');
+Route::get('/category/form', [CategoryController::class, 'form'])->name('formCategory');
+Route::post('/category', [CategoryController::class, 'add'])->name('addCategory');
+Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('formEditCategory');
+Route::put('/category/{category}/update', [CategoryController::class, 'update'])->name('EditCategory');
+Route::delete('/category/{category}/destroy', [CategoryController::class, 'destroy'])->name('DeleteCategory');
+Route::get('/category/search', [CategoryController::class, 'search'])->name('searchCategory');
+
+Route::resource("barterRequests", BarterRequestController::class);
+Route::resource('events', EventController::class);
 Route::resource('products', ProductController::class);
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
