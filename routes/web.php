@@ -58,6 +58,6 @@ Route::get('/category/search', [CategoryController::class, 'search'])->name('sea
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource('events', EventController::class);
 Route::resource('products', ProductController::class);
-
+    
 
 require __DIR__ . '/auth.php';
