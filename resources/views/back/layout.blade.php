@@ -230,14 +230,15 @@
                                         </li>
                                         <li class="nav-item mt-6 mb-3">
                                             <span class="nav-label">Store Managements</span></li>
-                                        <li class="nav-item ">
-                                            <a class="nav-link "  href="products.html">
-                                                <div class="d-flex align-items-center">
-                                                    <span class="nav-link-icon"> <i class="bi bi-cart"></i></span>
-                                                    <span class="nav-link-text">Products</span>
-                                                </div>
-                                            </a>
-                                        </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('products.index') }}">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="nav-link-icon"> <i class="bi bi-cart"></i></span>
+                                                        <span class="nav-link-text">Products</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            
                                         <li class="nav-item ">
                                             <a class="nav-link " href="{{route('showCategory')}}">
                                                 <div class="d-flex align-items-center">
@@ -292,14 +293,15 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="nav-item ">
-                                            <a class="nav-link " href="reviews.html">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('review-ratings.index') }}">
                                                 <div class="d-flex align-items-center">
                                                     <span class="nav-link-icon"> <i class="bi bi-star"></i></span>
                                                     <span class="nav-link-text">Reviews</span>
                                                 </div>
                                             </a>
                                         </li>
+                                        
                                          <!-- Nav item -->
  <li class="nav-item">
     <a class="nav-link  collapsed " href="#"

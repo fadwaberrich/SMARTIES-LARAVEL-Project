@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ProductController;
 
 
 use App\Http\Controllers\CategoryController;
@@ -8,7 +11,6 @@ use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\BarterRequestController;
 use App\Http\Controllers\EventController;
-use  App\Http\Controllers\AnnonceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,31 +26,38 @@ use  App\Http\Controllers\AnnonceController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 Route::get('/front', function () {
     return view('front/layout');
 });
 Route::get('/back', function () {
     return view('back/layout');
 });
-
-Route::get('/category',[CategoryController::class,'show'])->name('showCategory');
-Route::get('/category/form',[CategoryController::class,'form'])->name('formCategory');
-Route::post('/category',[CategoryController::class,'add'])->name('addCategory');
-Route::get('/category/{category}/edit',[CategoryController::class,'edit'])->name('formEditCategory');
-Route::put('/category/{category}/update',[CategoryController::class,'update'])->name('EditCategory');
-Route::delete('/category/{category}/destroy',[CategoryController::class,'destroy'])->name('DeleteCategory');
-//Route::get('/category/search',[CategoryController::class,'search'])->name('searchCategory');
-
-####annonce
-
-#Route::get('/Annonce/form',[AnnonceController::class,'form'])->name('formAnnonce');
-#Route::get('/Annonce/showAnnonce',[AnnonceController::class,'showAnnonce'])->name('showAnnonce');
-#Route::post('/Annonces',[AnnonceController::class,'store'])->name('addAnnonce');
-
-Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
-//Route::get('/annonces/showBack', [AnnonceController::class,'showBack'])->name('annonces.showBack');
+Route::resource('review-ratings', ReviewController::class);
+Route::get('review-ratings/{id}/edit', 'ReviewController@edit')->name('review-ratings.edit');
 
 
-Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
-Route::delete('/annonces/{annonce}/destroyBack',[AnnonceController::class, 'destroyBack'])->name('destroyBack');
-Route::resource('annonces', AnnonceController::class);
+Route::get('/category', [CategoryController::class, 'show'])->name('showCategory');
+Route::get('/category/form', [CategoryController::class, 'form'])->name('formCategory');
+Route::post('/category', [CategoryController::class, 'add'])->name('addCategory');
+Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('formEditCategory');
+Route::put('/category/{category}/update', [CategoryController::class, 'update'])->name('EditCategory');
+Route::delete('/category/{category}/destroy', [CategoryController::class, 'destroy'])->name('DeleteCategory');
+Route::get('/category/search', [CategoryController::class, 'search'])->name('searchCategory');
+
+Route::resource("barterRequests", BarterRequestController::class);
+Route::resource('events', EventController::class);
+Route::resource('products', ProductController::class);
+    
+
+require __DIR__ . '/auth.php';
