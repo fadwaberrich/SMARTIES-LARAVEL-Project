@@ -32,18 +32,19 @@ class AnnonceController extends Controller
     {
         $validatedData = $request->validate([
             
-            'id_categorie'=>'nullable|required',
-            'id_user'=>'nullable|required',
+            'id_categorie'=>'required',
+            'id_user'=>'nullable',
             'titre' => 'required|string',
             'description' => 'required|string',
             'telephone' => 'required|numeric',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'echange' => 'required|string', ], [
+            'photo' => 'image',
+            'echange' => 'nullable|required', ],
+             [
             'titre.required' => 'Le champ titre est obligatoire.',
              
             'description.required' => 'Le champ description est obligatoire.',
            
-            'telephone.required' => 'Le champ téléphone est obligatoire.',
+            'telephone.required' => 'Le champ téléphone est obligatoire.', 
             'telephone.numeric' => 'Le champ téléphone doit être un numéro.',
         ]);
 
@@ -52,9 +53,9 @@ class AnnonceController extends Controller
             $validatedData['photo'] = $imagePath;
         }
         
-       
+   
 
-        Annonce::create($validatedData);
+       Annonce::create($validatedData);
 
         return redirect()->route('annonces.index')->with('success', 'Annonce created successfully');
     }

@@ -66,4 +66,10 @@ Route::middleware('auth')->group(function () {
 });Route::resource('venuess', VenueController::class);
 
 
+Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
+Route::delete('/annonces/{annonce}/destroyBack',[AnnonceController::class, 'destroyBack'])->name('destroyBack');
+
+Route::resource('annonces', AnnonceController::class);
+
 require __DIR__ . '/auth.php';
+
