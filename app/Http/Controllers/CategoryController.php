@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Annonce;
 
 class CategoryController extends Controller
 {
@@ -24,7 +25,7 @@ class CategoryController extends Controller
             'name.required' => 'Le champ name est obligatoire.',
             'name.unique' => 'Cette catégorie existe déjà.',
              
-        'description.required' => 'Le champ description est obligatoire.',]
+           'description.required' => 'Le champ description est obligatoire.',]
        );
        $newCategory=category::create($data);
        return redirect(route('showCategory'));
@@ -42,7 +43,12 @@ class CategoryController extends Controller
            return redirect(route('showCategory'))->with('success','category updated successfully');
     }
     public function destroy(category $category){
+        $annonces = Annonce::where('id_categorie', $category->id)->get();
+foreach ($annonces as $annonce) {
+    $annonce->delete();
+}
         $category->delete();
+       
         return redirect(route('showCategory'))->with('success','category deleted successfully');
     }
     public function search(Request $request)

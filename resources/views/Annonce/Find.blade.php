@@ -5,7 +5,8 @@
 
 
 
-
+<div> <a href="{{ route('annonces.index') }}" class="btn btn-primary" style="background-color: blue">Back</a></div>
+<br/>
     <h1>Résultats de la recherche</h1>
    <!-- Formulaire de recherche -->
    <form action="{{ route('Search') }}" method="GET" class="mb-3">
@@ -19,6 +20,12 @@
 </form>
 
     <h1>Liste des Annonces</h1>
+
+    @if (count($annonces) === 0)
+<div class="alert alert-danger">
+    Aucune annonce trouvée pour la recherche "{{ $search }}"
+</div>
+@endif
     <div class="row">
         @foreach($annonces as $annonce)
         <div class="col-md-4 mb-4">

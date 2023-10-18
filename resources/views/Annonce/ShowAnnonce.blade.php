@@ -18,6 +18,7 @@
     </div>
 </form>
 
+
     <h1>Liste des Annonces</h1>
     <div class="row">
         @foreach($annonces as $annonce)

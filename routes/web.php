@@ -51,4 +51,5 @@ Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Searc
 
 Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
 Route::delete('/annonces/{annonce}/destroyBack',[AnnonceController::class, 'destroyBack'])->name('destroyBack');
+
 Route::resource('annonces', AnnonceController::class);
