@@ -1,6 +1,9 @@
-@extends('front.layout')
+@extends('back.layout')
 
 @section('content')
+<div class="container" style="margin-top: 30px;">
+
+    
     <h1>Event Details</h1>
 
     <div class="card">
@@ -21,4 +24,5 @@
                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this event?')">Delete Event</button>
             </form>        </div>
     </div>
+</div>
 @endsection

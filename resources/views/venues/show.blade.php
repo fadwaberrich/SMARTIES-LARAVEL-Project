@@ -1,6 +1,9 @@
-@extends('front.layout')
+@extends('back.layout')
 
 @section('content')
+<div class="container" style="margin-top: 30px;">
+
+    
     <h1>Venue Details</h1>
 
     <div class="card">
@@ -23,4 +26,5 @@
             </form>
         </div>
     </div>
+</div>
 @endsection

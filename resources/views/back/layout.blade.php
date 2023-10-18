@@ -247,6 +247,22 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link " href="{{route('venuess.index')}}">
+                                                <div class="d-flex align-items-center">
+                                                    <span class="nav-link-icon"> <i class="bi bi-globe"></i></span>
+                                                    <span class="nav-link-text">Venues</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link " href="{{route('events.index')}}">
+                                                <div class="d-flex align-items-center">
+                                                    <span class="nav-link-icon"> <i class="bi bi-people"></i></span>
+                                                    <span class="nav-link-text">Events</span>
+                                                </div>
+                                            </a>
+                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link   collapsed " href=""
                                                 data-bs-toggle="collapse" data-bs-target="#navCategoriesOrders" aria-expanded="false"
