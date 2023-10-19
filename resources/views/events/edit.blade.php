@@ -1,6 +1,9 @@
-@extends('front.layout')
+@extends('back.layout')
 
 @section('content')
+<div class="container" style="margin-top: 30px;">
+
+    
     <h1>Edit Event</h1>
 
     <form method="POST" action="{{ route('events.update', $event->id) }}">
@@ -46,4 +49,5 @@
 
         <button type="submit" class="btn btn-primary">Update Event</button>
     </form>
+</div>
 @endsection

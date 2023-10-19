@@ -1,12 +1,6 @@
-@extends('front.layout')
-@section('content')
+    @extends('front.layout')
+    @section('content')
 <div class="container">
-
-
-
-
-
-
    <!-- Formulaire de recherche -->
    <form action="" method="GET" class="mb-3">
     @csrf
@@ -19,7 +13,6 @@
 </form>
 
 
-    <h1>Liste des Annonces</h1>
     <div class="row">
         @foreach($annonces as $annonce)
         <div class="col-md-4 mb-4">
