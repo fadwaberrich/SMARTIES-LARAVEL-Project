@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link   collapsed " href="" data-bs-toggle="collapse"
+                            <a class="nav-link   collapsed " href="{{ route('Back') }}" data-bs-toggle="collapse"
                                 data-bs-target="#navCategoriesOrders" aria-expanded="false"
                                 aria-controls="navCategoriesOrders">
                                 <div class="d-flex align-items-center">

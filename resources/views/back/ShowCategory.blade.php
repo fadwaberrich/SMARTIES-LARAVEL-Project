@@ -253,7 +253,7 @@
           </div>
           <!-- button -->
           <div>
-            <a href="add-product.html" class="btn btn-primary">Add Category</a>
+            <a href="{{ route('formCategory') }}" class="btn btn-primary">Add Category</a>
           </div>
         </div>
       </div>
