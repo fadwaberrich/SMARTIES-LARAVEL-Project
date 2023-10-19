@@ -51,7 +51,8 @@ class EventController extends Controller
             $request->validate($rules, $customMessages);
             // Handle the image upload
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('events', 'public');
+                $imagePath = $request->file('image')->store('events_photos', 'public');
+                $validatedData['photo'] = $imagePath;
             } else {
                 $imagePath = null;
             }
@@ -63,7 +64,7 @@ class EventController extends Controller
                 'date' => $request->input('date'),
                 'location' => $request->input('location'),
                 'ticket_price' => $request->input('ticket_price'),
-                'image' => $imagePath,
+                'image' => $validatedData['photo'],
                 'status' => $request->input('status'),
                 'venue_id' => $request->input('venue_id'), // Set the venue_id
             ]);
@@ -87,6 +88,7 @@ class EventController extends Controller
     
         public function update(Request $request, $id)
         {
+            
             $event = Event::findOrFail($id);
             $event->update($request->all());
             return redirect()->route('events.index');
