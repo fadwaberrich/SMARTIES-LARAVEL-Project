@@ -11,6 +11,7 @@ use App\Http\Controllers\VenueController;
 
 use App\Http\Controllers\CategoryController;
 
+use App\Http\Controllers\ResponseController;
 
 use App\Http\Controllers\BarterRequestController;
 use App\Http\Controllers\EventController;
@@ -71,6 +72,7 @@ Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
 Route::delete('/annonces/{annonce}/destroyBack',[AnnonceController::class, 'destroyBack'])->name('destroyBack');
 
 Route::resource('annonces', AnnonceController::class);
+Route::resource("responses", ResponseController::class);
 
 require __DIR__ . '/auth.php';
 

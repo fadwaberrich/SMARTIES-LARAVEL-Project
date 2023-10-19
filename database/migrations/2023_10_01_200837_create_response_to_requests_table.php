@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('barter_request_id')->constrained('barter_requests')->onDelete('cascade');
             $table->text('message');
+            $table->string('status'); // Add the 'status' column with a default value of 'pending'
             $table->timestamps();
         });
     }
