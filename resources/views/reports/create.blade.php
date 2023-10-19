@@ -1,3 +1,6 @@
+@extends('front.layout')
+@section('content')
+
 <h1>Create Report for Form {{ $form->id }}</h1>
 
 <form method="POST" action="{{ route('reports.store') }}">
@@ -17,3 +20,5 @@
 
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
+
+@endsection
