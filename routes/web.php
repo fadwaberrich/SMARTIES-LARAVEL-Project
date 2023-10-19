@@ -6,12 +6,9 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\VenueController;
-
-
-
+use App\http\Controllers\ForumController;
+use App\http\Controllers\CommentForumController;
 use App\Http\Controllers\CategoryController;
-
-
 use App\Http\Controllers\BarterRequestController;
 use App\Http\Controllers\EventController;
 
@@ -43,8 +40,11 @@ Route::get('/', function () {
 });
 Route::get('/back', function () {
     return view('back/layout');
-})->name('back');
-
+});
+Route::resource("barterRequests", BarterRequestController::class);
+Route::resource("forum", ForumController::class);
+Route::resource("commentforum", CommentForumController::class);
+Route::resource('review-ratings', ReviewController::class);
 Route::get('/category', [CategoryController::class, 'show'])->name('showCategory');
 Route::get('/category/form', [CategoryController::class, 'form'])->name('formCategory');
 Route::post('/category', [CategoryController::class, 'add'])->name('addCategory');
