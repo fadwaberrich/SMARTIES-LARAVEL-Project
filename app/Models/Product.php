@@ -22,9 +22,9 @@ class Product extends Model
         'status', // If 'status' is part of the form data
         'annonce_id',
     ];
-    public function reviewRatings()
+    public function reviews()
     {
-        return $this->hasMany(ReviewRating::class);
+        return $this->hasMany(ReviewRating::class, 'product_id');
     }
     public function annonce()
     {

@@ -13,6 +13,7 @@
 </form>
 
 
+    <h1>Liste des Annonces</h1>
     <div class="row">
         @foreach($annonces as $annonce)
         <div class="col-md-4 mb-4">

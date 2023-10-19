@@ -41,6 +41,7 @@ class ProductController extends Controller
             $request['image'] = $imagePath;
         }
 
+      
     
         $product = new Product($request->all());
         $product->save();
@@ -53,8 +54,10 @@ class ProductController extends Controller
     // Display the specified product
     public function show(Product $product)
     {
+        $product = $product->load('reviews');
         return view('products.show', compact('product'));
     }
+    
 
     // Show the form for editing the specified product
     public function edit(Product $product)
@@ -89,5 +92,13 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')
             ->with('success', 'Product deleted successfully.');
+    }
+
+    public function showReviews(Product $product)
+    {
+        // Load reviews related to the product
+        $reviews = $product->reviews;
+
+        return view('products.reviews', compact('product', 'reviews'));
     }
 }
