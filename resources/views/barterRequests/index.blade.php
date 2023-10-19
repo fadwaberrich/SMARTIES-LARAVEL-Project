@@ -47,6 +47,7 @@
     @endphp
 
     @if (!$hasResponse)
+
                             <!-- Add a single input field for the message -->
                             <form method="POST" action="{{ route('responses.store') }}">
                                 @csrf
@@ -55,8 +56,9 @@
                                 @error('message')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                                <button type="submit" name="status" value="accepted" class="btn btn-success">Accept</button>
-                                <button type="submit" name="status" value="refused" class="btn btn-danger">Refuse</button>
+                            <button type="submit" name="status" value="accepted" class="btn btn-success" style="background-color: #4CAF50; color: white;">Accept</button>
+<button type="submit" name="status" value="refused" class="btn btn-danger" style="background-color: #D32F2F; color: white;">Refuse</button>
+
                             </form>
 
                         @endif
@@ -75,11 +77,11 @@
                                         Are you sure you want to delete this Barter Request?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #4CAF50; color: white;">Cancel</button>
                                         <form method="POST" action="{{ route('barterRequests.destroy', $barterRequest->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger" style="background-color: #D32F2F; color: white;">Delete</button>
                                         </form>
                                     </div>
                                 </div>

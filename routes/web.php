@@ -11,6 +11,7 @@ use App\http\Controllers\CommentForumController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BarterRequestController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ResponseController;
 
 /*
 |--------------------------------------------------------------------------
