@@ -1,10 +1,20 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AnnonceController;
+use App\Http\Controllers\VenueController;
+use App\http\Controllers\ForumController;
+use App\http\Controllers\CommentForumController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BarterRequestController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ReportController;
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,15 +27,24 @@ use App\Http\Controllers\ReportController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/front', function () {
+
+Route::get('/', function () {
     return view('front/layout');
 });
 Route::get('/back', function () {
     return view('back/layout');
-});
+})->name('back');
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource('forms', FormController::class);
 Route::resource('reports', ReportController::class);
@@ -35,3 +54,34 @@ Route::get('/forms/create', [FormController::class, 'create'])->name('forms.crea
 
 Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 
+Route::resource("forum", ForumController::class);
+Route::resource("commentforum", CommentForumController::class);
+Route::resource('review-ratings', ReviewController::class);
+Route::get('/category', [CategoryController::class, 'show'])->name('showCategory');
+Route::get('/category/form', [CategoryController::class, 'form'])->name('formCategory');
+Route::post('/category', [CategoryController::class, 'add'])->name('addCategory');
+Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('formEditCategory');
+Route::put('/category/{category}/update', [CategoryController::class, 'update'])->name('EditCategory');
+Route::delete('/category/{category}/destroy', [CategoryController::class, 'destroy'])->name('DeleteCategory');
+Route::get('/category/search', [CategoryController::class, 'search'])->name('searchCategory');
+Route::get('/products/{product}/reviews', [ProductController::class, 'showReviews'])->name('products.reviews');
+Route::resource("barterRequests", BarterRequestController::class);
+Route::resource('events', EventController::class);
+Route::get('eventsfront', [EventController::class, 'index2'])
+    ->name('events.index2');
+Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('products.create');
+Route::resource('products', ProductController::class);
+Route::middleware('auth')->group(function () {
+    Route::resource('annonces', AnnonceController::class);
+});
+Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
+Route::resource('venuess', VenueController::class);
+Route::middleware('auth')->group(function () {
+    Route::resource('review-ratings', ReviewController::class);
+});
+Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
+Route::delete('/annonces/{annonce}/destroyBack', [AnnonceController::class, 'destroyBack'])->name('destroyBack');
+Route::resource('annonces', AnnonceController::class);
+Route::resource("responses", ResponseController::class);
+
+require __DIR__ . '/auth.php';
