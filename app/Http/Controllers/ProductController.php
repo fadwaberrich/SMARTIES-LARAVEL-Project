@@ -25,7 +25,7 @@ class ProductController extends Controller
     // Store a newly created product in the database
     public function store(Request $request)
     {
-         $request->validate([
+        $validatedData= $request->validate([
             'product_name' => 'required|string|max:255',
             'weight' => 'required|numeric',
             'category' => 'required|string|max:255',
@@ -34,16 +34,15 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'address' => 'nullable|string|max:255',
             'photo' => 'nullable|image',
+            'annonce_id'=>'required'
         ]);
     
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('produits_photos', 'public');
-            $request['image'] = $imagePath;
+        if ($request->hasFile('photo')) {
+            $imagePath = $request->file('photo')->store('annonce_photos', 'public');
+            $validatedData['photo'] = $imagePath;
         }
-
-      
     
-        $product = new Product($request->all());
+        $product = Product::create($validatedData);
         $product->save();
     
         return redirect()->route('products.index')->with('success', 'Product created successfully.');

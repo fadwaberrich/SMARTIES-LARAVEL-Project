@@ -94,7 +94,7 @@
                                             <!-- heading -->
                                             <h4 class="mb-3 h5">Product Images</h4>
                                             <!-- input -->
-                                            <input type="file" name="image" class="form-control">
+                                            <input type="file" name="photo" class="form-control">
                                         </div>
                                     </div>
                                     <!-- input -->

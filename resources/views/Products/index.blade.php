@@ -117,7 +117,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <img src="{{ asset('storage/' . $product->image) }}"
+                                                        <img src="{{ asset('storage/' . $product->photo) }}"
                                                             class="icon-shape icon-md">
                                                     </td>
                                                     <td><a href="#"

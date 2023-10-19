@@ -5,8 +5,8 @@
         <div class="row">
 
             <div class="col-md-6">
-                <!-- img slide -->
-            </div>
+                <img src="{{ asset('storage/' . $product->photo ) }}" class="card-img-top" alt="Image">
+                        </div>
             <div class="col-md-6">
                 <div class="ps-lg-10 mt-6 mt-md-0">
                     <!-- content -->
