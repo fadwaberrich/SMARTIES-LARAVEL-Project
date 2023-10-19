@@ -32,7 +32,7 @@ class AnnonceController extends Controller
     {
         $validatedData = $request->validate([
             'id_categorie'=>'nullable|required',
-            'id_user'=>'nullable|required',
+            'id_user'=>'required',
             'titre' => 'required|string',
             'description' => 'required|string',
             'telephone' => 'required|numeric',

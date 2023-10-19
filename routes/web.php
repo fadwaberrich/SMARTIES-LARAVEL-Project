@@ -58,19 +58,21 @@ Route::put('/category/{category}/update', [CategoryController::class, 'update'])
 Route::delete('/category/{category}/destroy', [CategoryController::class, 'destroy'])->name('DeleteCategory');
 Route::get('/category/search', [CategoryController::class, 'search'])->name('searchCategory');
 
-Route::resource("barterRequests", BarterRequestController::class);
-Route::resource('events', EventController::class);
+
 Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('products.create');
-Route::resource('products', ProductController::class);
-Route::middleware('auth')->group(function () {
-    Route::resource('annonces', AnnonceController::class);
-});Route::resource('venuess', VenueController::class);
+
+
 
 
 Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
 Route::delete('/annonces/{annonce}/destroyBack',[AnnonceController::class, 'destroyBack'])->name('destroyBack');
 
-Route::resource('annonces', AnnonceController::class);
 
+Route::middleware('auth')->group(function () {
+    Route::resource('annonces', AnnonceController::class);
+});Route::resource('venuess', VenueController::class);
+Route::resource('products', ProductController::class);
+Route::resource("barterRequests", BarterRequestController::class);
+Route::resource('events', EventController::class);
 require __DIR__ . '/auth.php';
 
