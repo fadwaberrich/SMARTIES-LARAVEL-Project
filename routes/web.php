@@ -1,12 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< Updated upstream
-=======
 use App\Http\Controllers\BarterRequestController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\CommentForumController;
->>>>>>> Stashed changes
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +25,6 @@ Route::get('/front', function () {
 Route::get('/back', function () {
     return view('back/layout');
 });
-<<<<<<< Updated upstream
-=======
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource("forum", ForumController::class);
 Route::resource("commentforum", CommentForumController::class);
->>>>>>> Stashed changes

@@ -19,7 +19,7 @@
         </div>
 
         <h2 class="title">
-          <a href="blog-details.html">{{ $publication->title }}</a>
+          <a href="{{ route('forum.show', $publication->id) }}">{{ $publication->title }}</a>
         </h2>
 
         <div class="meta-top">
@@ -27,22 +27,22 @@
             <li class="d-flex align-items-center "><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
             <li class="d-flex align-items-center mr-1"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">{{ $publication->created_at }}</time></a></li>
             <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+        
+            <form action="{{ route('forum.destroy', $publication->id) }}" method="POST" class="d-inline">
+                    @csrf
+        @method('DELETE')
+        <button type="submit" style="border: none; background: none; color: red;">
+        <i class="bi bi-archive-fill" style="font-size: 20px;"></i>
+    </button>
+                    </form>
           </ul>
         </div>
 
         <div class="content">
           <p>
           {{ $publication->description }}          </p>
-        </div>
-        <div class="">
-    <form action="{{ route('forum.destroy', $publication->id) }}" method="POST" class="d-inline">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
-    <a href="{{ route('forum.show', $publication->id) }}" class="btn btn-info">View</a>
-    <button type="submit" class="btn btn-warning d-inline">Show More</button>
-</div>
+       
+      
 
 
       </article>

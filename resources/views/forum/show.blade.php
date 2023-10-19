@@ -55,7 +55,6 @@
                     <form action="{{ route('commentforum.destroy', $comment->id) }}" method="POST" class="d-inline">
                     @csrf
         @method('DELETE')
-        <input value={{$comment->id}}></input>
         <button type="submit" style="border: none; background: none; color: red;">
         <i class="bi bi-archive-fill" style="font-size: 20px;"></i>
     </button>
@@ -70,22 +69,22 @@
 
 
               <div class="reply-form">
+    <h4>Leave a Reply</h4>
+    <form method="POST" action="{{ route('commentforum.store') }}">
+        @csrf
+        <div class="row">
+            <div class="col form-group">
+                <textarea name="comment" id="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                @error('comment')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+        <input type="hidden" name="id" value="{{ $forum->id }}">
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+    </form>
+</div>
 
-                <h4>Leave a Reply</h4>
-                <form method="POST" action="{{ route('commentforum.store') }}">
-                @csrf
-                  <div class="row">
-                    <div class="col form-group">
-                      <textarea name="comment" id="comment" class="form-control" placeholder="Your Comment*"></textarea>
-                    </div>
-                  </div>
-                  <input  type="hidden" name="id" value="{{$forum->id}}">
-
-                  <button type="submit" class="btn btn-primary">Post Comment</button>
-
-                </form>
-
-              </div>
 
             </div><!-- End blog comments -->
 

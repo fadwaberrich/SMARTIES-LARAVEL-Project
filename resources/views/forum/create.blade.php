@@ -4,15 +4,25 @@
     <h1>Create Forum</h1>
 
     <form method="POST" action="{{ route('forum.store') }}">
-        @csrf
+    @csrf
 
-        <div class="form-group">
-            <label for="publication">Publication:</label>
-            <textarea class="form-control" name="title" id="title" rows="4"></textarea>
-            <textarea class="form-control" name="description" id="description" rows="4"></textarea>
-        </div>
+    <div class="form-group">
+        <label for="title">Titre:</label>
+        <textarea class="form-control" name="title" id="title" rows="4"></textarea>
+        @error('title')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
 
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" name="description" id="description" rows="4"></textarea>
+        @error('description')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
 
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
+    <button type="submit" class="btn btn-primary">Créer</button>
+</form>
+
     @endsection

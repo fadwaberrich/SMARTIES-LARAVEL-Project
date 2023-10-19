@@ -38,15 +38,23 @@ class ForumController extends Controller
         // Validation rules for the form fields
         $rules = [
             'description' => 'required|string',
+            'title' => 'required|string',
         ];
     
-        $request->validate($rules);
+        // Personnalisez les messages d'erreur (facultatif)
+        $messages = [
+            'description.required' => 'La description est requise.',
+            'title.required' => 'Le titre est requis.',
+        ];
+    
+        $request->validate($rules, $messages);
+    
         Forum::create($request->all());
     
         return redirect()->route('forum.index')
-            ->with('success', 'Forum created successfully.');
+            ->with('success', 'Forum créé avec succès.');
     }
-
+    
     public function create()
     {
         return view('forum.create');
@@ -56,7 +64,6 @@ class ForumController extends Controller
     public function index()
     {
         $forum = forum::latest()->get();
-
         // On transmet les Post à la vue
         return view("forum.index", compact("forum"));
     }
