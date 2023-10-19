@@ -10,6 +10,9 @@ use App\http\Controllers\ForumController;
 use App\http\Controllers\CommentForumController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BarterRequestController;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\ReportController;
+
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ResponseController;
 
@@ -43,6 +46,14 @@ Route::get('/back', function () {
     return view('back/layout');
 })->name('back');
 Route::resource("barterRequests", BarterRequestController::class);
+Route::resource('forms', FormController::class);
+Route::resource('reports', ReportController::class);
+Route::post('reports', [ReportController::class, 'store'])->name('reports.store');
+Route::get('/forms/{form}/create-report', [ReportController::class, 'create'])->name('reports.create');
+Route::get('/forms/create', [FormController::class, 'create'])->name('forms.create');
+
+Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
+
 Route::resource("forum", ForumController::class);
 Route::resource("commentforum", CommentForumController::class);
 Route::resource('review-ratings', ReviewController::class);
