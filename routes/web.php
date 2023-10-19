@@ -41,7 +41,7 @@ Route::get('/', function () {
 });
 Route::get('/back', function () {
     return view('back/layout');
-});
+})->name('back');
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource("forum", ForumController::class);
 Route::resource("commentforum", CommentForumController::class);
@@ -63,15 +63,13 @@ Route::resource('products', ProductController::class);
 Route::middleware('auth')->group(function () {
     Route::resource('annonces', AnnonceController::class);
 });
+Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
 Route::resource('venuess', VenueController::class);
-
 Route::middleware('auth')->group(function () {
     Route::resource('review-ratings', ReviewController::class);
 });
-
 Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
 Route::delete('/annonces/{annonce}/destroyBack', [AnnonceController::class, 'destroyBack'])->name('destroyBack');
-
 Route::resource('annonces', AnnonceController::class);
 Route::resource("responses", ResponseController::class);
 
