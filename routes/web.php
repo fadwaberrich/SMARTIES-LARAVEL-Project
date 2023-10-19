@@ -31,6 +31,7 @@ Route::resource('forms', FormController::class);
 Route::resource('reports', ReportController::class);
 Route::post('reports', [ReportController::class, 'store'])->name('reports.store');
 Route::get('/forms/{form}/create-report', [ReportController::class, 'create'])->name('reports.create');
+Route::get('/forms/create', [FormController::class, 'create'])->name('forms.create');
 
 Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 

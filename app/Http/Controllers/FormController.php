@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Form; 
 use App\Models\Report;
+use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
@@ -20,21 +21,28 @@ class FormController extends Controller
         return view('forms.create');
     }
 
+
     public function store(Request $request)
     {
         $data = $request->validate([
-            'senderName' => 'required|string',
-            'receiverName' => 'required|string',
+            'title' => 'required|string',
             'description' => 'required|string',
-            'report' => 'required|boolean',
-
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image here
         ]);
-
-        Form::create($data);
-
-        return redirect()->route('forms.index')->with('success', 'Form created successfully.');
+    
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $data['image'] = $imagePath;
+        }
+    
+        $form = Form::create($data);
+    
+        // Redirect to the show route for the newly created form
+        return redirect()->route('forms.show', ['form' => $form->id])->with('success', 'Form created successfully.');
     }
-
+    
+   
     public function show( Form $form)
 {
     return view('forms.show', compact('form'));
@@ -66,21 +74,41 @@ public function createReport(Form $form)
     public function update(Request $request, Form $form)
     {
         $data = $request->validate([
-            'senderName' => 'required|string',
-            'receiverName' => 'required|string',
+            'title' => 'required|string',
             'description' => 'required|string',
-            'report' => 'required|boolean',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image upload (optional)
         ]);
-
+    
+        // Handle image upload if a new image is provided
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $data['image'] = $imagePath;
+        } else {
+            // If no new image is provided, keep the existing image data
+            $data['image'] = $form->image;
+        }
+    
         $form->update($data);
+        session()->flash('success', 'Form edited successfully.');
 
         return redirect()->route('forms.index')->with('success', 'Form updated successfully.');
     }
+    
+    
 
     public function destroy(Form $form)
     {
+        // Delete the associated image file if it exists
+        if (!empty($form->image)) {
+            \Storage::disk('public')->delete($form->image);
+        }
+    
         $form->delete();
-
-        return redirect()->route('forms.index')->with('success', 'Form deleted successfully.');
+        session()->flash('success', 'Form deleted successfully.');
+    
+        return redirect()->route('forms.index');
     }
+    
+    
+    
 }

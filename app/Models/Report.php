@@ -12,8 +12,7 @@ class Report extends Model
         'title',
         'description',
         'form_id',
-        'report', // Add 'report' to the fillable attributes
-
+        'report', 
     ];
 
     public function form()

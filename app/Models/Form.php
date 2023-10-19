@@ -10,9 +10,9 @@ class Form extends Model
     use HasFactory;
 
     protected $fillable = [
-        'senderName',
-        'receiverName',
+        'title',
         'description',
+        'image',
     ];
 
     protected $casts = [

@@ -308,12 +308,11 @@
                                         </li>
                                          <!-- Nav item -->
  <li class="nav-item">
-    <a class="nav-link  collapsed " href="#"
-        data-bs-toggle="collapse" data-bs-target="#navMenuLevelFirst" aria-expanded="false"
-        aria-controls="navMenuLevelFirst">
-        <span class="nav-link-icon"><i class=" bi bi-arrow-90deg-down"></i></span>
-        <span class="nav-link-text">Menu Level</span>
-    </a>
+ <a href="{{ route('forms.index') }}" class="nav-link">
+    <span class="nav-link-icon"><i class="bi bi-newspaper"></i></span>
+    <span class="nav-link-text">Forms Exchanged</span>
+</a>
+
     <div id="navMenuLevelFirst" class="collapse "
         data-bs-parent="#sideNavbar">
         <ul class="nav flex-column">
