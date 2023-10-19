@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ReviewRating;
-use App\Http\ProductController;
 
 class ReviewController extends Controller
 {
@@ -24,17 +23,25 @@ class ReviewController extends Controller
     // Store a newly created review rating in the database
     public function store(Request $request)
     {
+        // Validate the form data
         $request->validate([
-            'product_id' => 'required',
-            'star_rating' => 'required|integer|min:1|max:5',
-            'comments' => 'required|string',
-            // Add other validation rules as needed
+            'product_id' => 'required|exists:products,id',
+            'user_id' => 'required|exists:users,id', // Ensure the user_id is present and corresponds to a user in your database
+            'star_rating' => 'required|integer|between:1,5',
+            'comments' => 'required|string|max:255',
         ]);
-    
-        // If validation passes, create the review
-        ReviewRating::create($request->all());
-    
-        return back()->with('success', 'Review rating created successfully.');
+
+        // Create a new review rating
+        $reviewRating = ReviewRating::create([
+            'product_id' => $request->input('product_id'),
+            'user_id' => $request->input('user_id'),
+            'star_rating' => $request->input('star_rating'),
+            'comments' => $request->input('comments'),
+        ]);
+
+        // Optionally, you might want to redirect back or do something else after creating the review
+
+        return redirect()->back()->with('success', 'Review submitted successfully');
     }
     
     // Display the specified review rating
@@ -88,4 +95,5 @@ class ReviewController extends Controller
         return redirect()->route('review-ratings.index')
             ->with('success', 'Review rating deleted successfully.');
     }
+    
 }

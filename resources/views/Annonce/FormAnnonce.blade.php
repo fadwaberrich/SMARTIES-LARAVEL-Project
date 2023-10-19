@@ -57,7 +57,7 @@
                                 <input type="text" name="echange" class="form-control">
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Ajouter votre produit</button>
+                            <button type="submit" class="btn btn-warning">Ajouter votre produit</button>
                         </form>
                     </div>
                 </div>

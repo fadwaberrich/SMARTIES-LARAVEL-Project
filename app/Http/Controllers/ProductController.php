@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Annonce;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Http\ReviewController;
 
 class ProductController extends Controller
 {
@@ -26,23 +25,38 @@ class ProductController extends Controller
     // Store a newly created product in the database
     public function store(Request $request)
     {
-     
-            $request->validate([
-                'product_name' => 'required|string|max:255',
-                // Add validation for other fields if needed
-            ]);
-            $product = new Product($request->all());
-            $product->save();
-            return redirect()->route('products.index')->with('success', 'Product created successfully.');
+        $validatedData= $request->validate([
+            'product_name' => 'required|string|max:255',
+            'weight' => 'required|numeric',
+            'category' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'units' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'address' => 'nullable|string|max:255',
+            'photo' => 'nullable|image',
+            'annonce_id'=>'required'
+        ]);
     
+        if ($request->hasFile('photo')) {
+            $imagePath = $request->file('photo')->store('annonce_photos', 'public');
+            $validatedData['photo'] = $imagePath;
+        }
+    
+        $product = Product::create($validatedData);
+        $product->save();
+    
+        return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
+    
     
 
     // Display the specified product
     public function show(Product $product)
     {
+        $product = $product->load('reviews');
         return view('products.show', compact('product'));
     }
+    
 
     // Show the form for editing the specified product
     public function edit(Product $product)
@@ -77,5 +91,13 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')
             ->with('success', 'Product deleted successfully.');
+    }
+
+    public function showReviews(Product $product)
+    {
+        // Load reviews related to the product
+        $reviews = $product->reviews;
+
+        return view('products.reviews', compact('product', 'reviews'));
     }
 }
