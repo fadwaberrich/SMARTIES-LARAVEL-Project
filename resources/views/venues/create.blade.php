@@ -11,22 +11,22 @@
 
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" class="form-control" required>
+            <input type="text" name="name" id="name" class="form-control" >
         </div>
 
         <div class="form-group">
             <label for="address">Address:</label>
-            <input type="text" name="address" id="address" class="form-control" required>
+            <input type="text" name="address" id="address" class="form-control" >
         </div>
 
         <div class="form-group">
             <label for="capacity">Capacity:</label>
-            <input type="number" name="capacity" id="capacity" class="form-control" required>
+            <input type="number" name="capacity" id="capacity" class="form-control" >
         </div>
 
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
+            <textarea name="description" id="description" class="form-control" rows="4" ></textarea>
         </div>
 
         <div class="form-group">
