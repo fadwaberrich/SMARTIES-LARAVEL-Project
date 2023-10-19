@@ -3,13 +3,15 @@
 
     <div class="container">
         <div class="row">
-
             <div class="col-md-6">
                 <img src="{{ asset('storage/' . $product->photo ) }}" class="card-img-top" alt="Image">
                         </div>
             <div class="col-md-6">
                 <div class="ps-lg-10 mt-6 mt-md-0">
                     <!-- content -->
+                    <a href="#!" class="mb-4 d-block">            {{ $product->annonce->titre }}
+                    </a>
+
                     <a href="#!" class="mb-4 d-block">{{ $product->category }}</a>
                     <!-- heading -->
                     <h1 class="mb-1">{{ $product->product_name }} </h1>
