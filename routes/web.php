@@ -65,15 +65,11 @@ Route::put('/category/{category}/update', [CategoryController::class, 'update'])
 Route::delete('/category/{category}/destroy', [CategoryController::class, 'destroy'])->name('DeleteCategory');
 Route::get('/category/search', [CategoryController::class, 'search'])->name('searchCategory');
 Route::get('/products/{product}/reviews', [ProductController::class, 'showReviews'])->name('products.reviews');
-Route::resource("barterRequests", BarterRequestController::class);
-Route::resource('events', EventController::class);
-Route::get('eventsfront', [EventController::class, 'index2'])
-    ->name('events.index2');
+
+Route::get('eventsfront', [EventController::class, 'index2']) ->name('events.index2');
 Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('products.create');
-Route::resource('products', ProductController::class);
-Route::middleware('auth')->group(function () {
-    Route::resource('annonces', AnnonceController::class);
-});
+
+
 Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
 Route::resource('venuess', VenueController::class);
 Route::middleware('auth')->group(function () {
@@ -82,6 +78,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
 Route::delete('/annonces/{annonce}/destroyBack', [AnnonceController::class, 'destroyBack'])->name('destroyBack');
 Route::resource('annonces', AnnonceController::class);
+Route::resource("barterRequests", BarterRequestController::class);
+Route::resource('events', EventController::class);
+Route::resource('products', ProductController::class);
 Route::resource("responses", ResponseController::class);
-
+Route::middleware('auth')->group(function () {
+    Route::resource('annonces', AnnonceController::class);
+});
 require __DIR__ . '/auth.php';

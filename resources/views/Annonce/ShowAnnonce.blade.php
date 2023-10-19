@@ -1,5 +1,6 @@
     @extends('front.layout')
     @section('content')
+<<<<<<< Updated upstream
         <div class="container">
             <!-- Formulaire de recherche -->
             <form action="{{ route('Search') }}" method="GET" class="mb-3">
@@ -11,6 +12,19 @@
                     </div>
                 </div>
             </form>
+=======
+<div class="container">
+   <!-- Formulaire de recherche -->
+   <form action="{{ route('Search') }}" method="GET" class="mb-3">
+    @csrf
+    <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Rechercher par titre">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </div>
+    </div>
+</form>
+>>>>>>> Stashed changes
 
 
             <h1>Liste des Annonces</h1>

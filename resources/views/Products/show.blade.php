@@ -9,7 +9,12 @@
             <div class="col-md-6">
                 <div class="ps-lg-10 mt-6 mt-md-0">
                     <!-- content -->
-                    <a href="#!" class="mb-4 d-block">            {{ $product->annonce->titre }}
+                    <a href="#!" class="mb-4 d-block">
+                        @if($product->annonce)
+                            {{ $product->annonce->titre }}
+                        @else
+                            No title available
+                        @endif
                     </a>
 
                     <a href="#!" class="mb-4 d-block">{{ $product->category }}</a>
