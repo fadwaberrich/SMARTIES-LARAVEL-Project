@@ -26,9 +26,7 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -40,15 +38,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/front', function () {
+Route::get('/', function () {
     return view('front/layout');
 });
 Route::get('/back', function () {
     return view('back/layout');
 });
-Route::resource('review-ratings', ReviewController::class);
-Route::get('review-ratings/{id}/edit', 'ReviewController@edit')->name('review-ratings.edit');
-
 
 Route::get('/category', [CategoryController::class, 'show'])->name('showCategory');
 Route::get('/category/form', [CategoryController::class, 'form'])->name('formCategory');
@@ -64,13 +59,14 @@ Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('p
 Route::resource('products', ProductController::class);
 Route::middleware('auth')->group(function () {
     Route::resource('annonces', AnnonceController::class);
-});Route::resource('venuess', VenueController::class);
+});
+Route::resource('venuess', VenueController::class);
+Route::resource('review-ratings', ReviewController::class);
 
 
 Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
-Route::delete('/annonces/{annonce}/destroyBack',[AnnonceController::class, 'destroyBack'])->name('destroyBack');
+Route::delete('/annonces/{annonce}/destroyBack', [AnnonceController::class, 'destroyBack'])->name('destroyBack');
 
 Route::resource('annonces', AnnonceController::class);
 
 require __DIR__ . '/auth.php';
-

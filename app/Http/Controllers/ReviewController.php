@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ReviewRating;
-use App\Http\ProductController;
 
 class ReviewController extends Controller
 {
