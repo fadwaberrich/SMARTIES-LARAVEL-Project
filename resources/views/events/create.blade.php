@@ -1,7 +1,7 @@
-@extends('front.layout')
+@extends('back.layout')
 
 @section('content')
-<div class="" style="margin-left: 210px;">
+<div class="" style="margin-left: 210px; margin-top:50px;">
     <h1>Create Event</h1>
 
     <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
