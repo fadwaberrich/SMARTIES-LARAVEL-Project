@@ -8,19 +8,23 @@ use App\Models\Venue;
 
 class EventController extends Controller
 {
-  
+
         public function index()
         {
             $events = Event::all();
             return view('events.index', compact('events'));
         }
-    
+        public function index2()
+        {
+            $events = Event::all();
+            return view('events.index2', compact('events'));
+        }
         public function create()
         {
             $venues = Venue::all();
             return view('events.create',compact('venues'));
         }
-    
+
         public function store(Request $request)
         {
             $rules = [
@@ -33,7 +37,7 @@ class EventController extends Controller
                 'status' => 'required|in:upcoming,ongoing,past,canceled',
                 'venue_id' => 'required|exists:venues,id',
             ];
-        
+
             // Custom error messages
             $customMessages = [
                 'name.required' => 'The name field is required.',
@@ -46,7 +50,7 @@ class EventController extends Controller
                 'status.in' => 'The status must be one of: upcoming, ongoing, past, canceled.',
                 'venue_id.exists' => 'The selected venue does not exist.',
             ];
-        
+
             // Validate the request with custom error messages
             $request->validate($rules, $customMessages);
             // Handle the image upload
@@ -69,31 +73,31 @@ class EventController extends Controller
                 'venue_id' => $request->input('venue_id'), // Set the venue_id
             ]);
             $event->save();
-        
+
             return redirect()->route('events.index');
         }
-        
-    
+
+
         public function show($id)
         {
             $event = Event::findOrFail($id);
             return view('events.show', compact('event'));
         }
-    
+
         public function edit($id)
         {
             $event = Event::findOrFail($id);
             return view('events.edit', compact('event'));
         }
-    
+
         public function update(Request $request, $id)
         {
-            
+
             $event = Event::findOrFail($id);
             $event->update($request->all());
             return redirect()->route('events.index');
         }
-    
+
         public function destroy($id)
         {
             $event = Event::findOrFail($id);

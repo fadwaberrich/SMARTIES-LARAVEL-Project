@@ -56,6 +56,8 @@ Route::get('/category/search', [CategoryController::class, 'search'])->name('sea
 Route::get('/products/{product}/reviews', [ProductController::class, 'showReviews'])->name('products.reviews');
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource('events', EventController::class);
+Route::get('eventsfront', [EventController::class, 'index2'])
+    ->name('events.index2');
 Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('products.create');
 Route::resource('products', ProductController::class);
 Route::middleware('auth')->group(function () {

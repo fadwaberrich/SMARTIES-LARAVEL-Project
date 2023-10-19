@@ -20,6 +20,15 @@
                     <x-nav-link :href="route('annonces.index')" :active="request()->routeIs('annonces.*')">
                         {{ __('Annonces') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('barterRequests.index')" :active="request()->routeIs('barterRequests.*')">
+                        {{ __('barter Requests') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('responses.index')" :active="request()->routeIs('responses.*')">
+                        {{ __('Responses') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('events.index2')" :active="request()->routeIs('events.*')">
+                        {{ __('Events') }}
+                    </x-nav-link>
                 </div>
             </div>
 
