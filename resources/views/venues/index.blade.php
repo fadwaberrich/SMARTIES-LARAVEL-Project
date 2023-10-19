@@ -13,6 +13,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Image</th>
                 <th>Address</th>
                 <th>Capacity</th>
                 <th>Description</th>
@@ -27,6 +28,13 @@
                 <tr>
                     <td>{{ $venue->id }}</td>
                     <td>{{ $venue->name }}</td>
+                    <td>
+                    @if($venue->image)
+                        <img src="{{ asset('storage/' . $venue->image) }}" alt="Image" width="100">
+                    @else
+                        No Image
+                    @endif
+</td>
                     <td>{{ $venue->address }}</td>
                     <td>{{ $venue->capacity }}</td>
                     <td>{{ $venue->description }}</td>

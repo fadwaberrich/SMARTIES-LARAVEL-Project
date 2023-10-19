@@ -12,6 +12,8 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Image</th>
+
                 <th>Name</th>
                 <th>Description</th>
                 <th>Date</th>
@@ -25,6 +27,13 @@
             @foreach($events as $event)
                 <tr>
                     <td>{{ $event->id }}</td>
+                    <td>
+                    @if($event->image)
+                        <img src="{{ asset('storage/' . $event->image) }}" alt="Image" width="100">
+                    @else
+                        No Image
+                    @endif
+</td>
                     <td>{{ $event->name }}</td>
                     <td>{{ $event->description }}</td>
                     <td>{{ $event->date }}</td>

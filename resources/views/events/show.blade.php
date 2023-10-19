@@ -9,6 +9,11 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">{{ $event->name }}</h5>
+            @if($event->image)
+            <img src="{{ asset('storage/' . $event->image) }}" alt="Image" width="100">
+            @else
+                        No Image
+                    @endif
             <p class="card-text"><strong>Description:</strong> {{ $event->description }}</p>
             <p class="card-text"><strong>Date:</strong> {{ $event->date }}</p>
             <p class="card-text"><strong>Location:</strong> {{ $event->location }}</p>

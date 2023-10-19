@@ -12,22 +12,22 @@
 
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" class="form-control" value="{{ $venue->name }}" required>
+            <input type="text" name="name" id="name" class="form-control" value="{{ $venue->name }}" >
         </div>
 
         <div class="form-group">
             <label for="address">Address:</label>
-            <input type="text" name="address" id="address" class="form-control" value="{{ $venue->address }}" required>
+            <input type="text" name="address" id="address" class="form-control" value="{{ $venue->address }}" >
         </div>
 
         <div class="form-group">
             <label for="capacity">Capacity:</label>
-            <input type="number" name="capacity" id="capacity" class="form-control" value="{{ $venue->capacity }}" required>
+            <input type="number" name="capacity" id="capacity" class="form-control" value="{{ $venue->capacity }}" >
         </div>
 
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea name="description" id="description" class="form-control" rows="4" required>{{ $venue->description }}</textarea>
+            <textarea name="description" id="description" class="form-control" rows="4" >{{ $venue->description }}</textarea>
         </div>
 
         <div class="form-group">
