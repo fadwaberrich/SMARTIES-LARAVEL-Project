@@ -26,16 +26,42 @@ class ProductController extends Controller
     // Store a newly created product in the database
     public function store(Request $request)
     {
-        $validatedData= $request->validate([
+        $validatedData = $request->validate([
             'product_name' => 'required|string|max:255',
             'weight' => 'required|numeric',
-            'category' => 'required|string|max:255',
             'price' => 'required|numeric',
             'units' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'address' => 'nullable|string|max:255',
-            'photo' => 'nullable|image',
-            'annonce_id'=>'required'
+            'description' => 'required|string',
+            'address' => 'required|string|max:255',
+            'photo' => 'required|image',
+            'annonce_id' => 'required',
+        ], [
+            'product_name.required' => 'The product name is required.',
+            'product_name.string' => 'The product name must be a string.',
+            'product_name.max' => 'The product name may not be greater than :max characters.',
+            
+            'weight.required' => 'The weight is required.',
+            'weight.numeric' => 'The weight must be a number.',
+            
+            'price.required' => 'The price is required.',
+            'price.numeric' => 'The price must be a number.',
+            
+            'units.required' => 'The units are required.',
+            'units.string' => 'The units must be a string.',
+            'units.max' => 'The units may not be greater than :max characters.',
+            
+            'description.string' => 'The description must be a string.',
+            'description.required' => 'The description is required',
+            'description.max' => 'The description may not be greater than :max characters.',
+
+            
+            'address.string' => 'The address must be a string.',
+            'address.max' => 'The address may not be greater than :max characters.',
+            'address.required' => 'The adress is required',
+
+            'photo.image' => 'The file must be an image.',
+            'photo.required'=>'The image is required'
+            
         ]);
     
         if ($request->hasFile('photo')) {
@@ -77,16 +103,42 @@ class ProductController extends Controller
         $request->validate([
             'product_name' => 'required|string|max:255',
             'weight' => 'required|numeric',
-            'category' => 'required|string|max:255',
             'price' => 'required|numeric',
             'units' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'address' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'required|string',
+            'address' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ], [
+            'product_name.required' => 'The product name is required.',
+            'product_name.string' => 'The product name must be a string.',
+            'product_name.max' => 'The product name may not be greater than :max characters.',
+        
+            'weight.required' => 'The weight is required.',
+            'weight.numeric' => 'The weight must be a number.',
+        
+            'price.required' => 'The price is required.',
+            'price.numeric' => 'The price must be a number.',
+        
+            'units.required' => 'The units are required.',
+            'units.string' => 'The units must be a string.',
+            'units.max' => 'The units may not be greater than :max characters.',
+        
+            'description.required' => 'The description is required.',
+            'description.string' => 'The description must be a string.',
+        
+            'address.required' => 'The address is required.',
+            'address.string' => 'The address must be a string.',
+            'address.max' => 'The address may not be greater than :max characters.',
+        
+            'image.required' => 'The image is required.',
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'The image must be of type: :mimes.',
+            'image.max' => 'The image may not be greater than :max kilobytes.',
         ]);
-
+        
+        
         $product->update($request->all());
-
+        
         return redirect()->route('products.index')
             ->with('success', 'Product updated successfully.');
     }

@@ -1,100 +1,70 @@
-@extends('back.layout')
-@section('content')
-        <main class="main-content-wrapper">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row mb-8">
-                    <div class="col-md-12">
-                        <div class="d-md-flex justify-content-between align-items-center">
-                            <!-- page header -->
-                            <div>
-                                <h2>Add New Product</h2>
-                                <!-- breadcrumb -->
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb mb-0">
-                                        <li class="breadcrumb-item"><a href="#" class="text-inherit">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="text-inherit">Products</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Add New Product</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                            <!-- button -->
-                            <div>
-                                <a href="products.html" class="btn btn-light">Back to Product</a>
-                            </div>
+<x-app-layout>
+    <section>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+                <div class="p-4 sm:p-8 bg-white  shadow sm:rounded-lg">
+                    <header>
+                        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-900">
+                            {{ __('Create product') }}
+                        </h2>
+                        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                            {{ __('Create a product for your announcement.') }}
+                        </p>
+                    </header>
+                    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <x-text-input type="hidden" name="annonce_id" :value="old('annonce_id', request('annonce_id'))" />
+                    
+                        <div>
+                            <x-input-label for="product_name" :value="__('Product Name')" />
+                            <x-text-input id="product_name" name="product_name" type="text" class="mt-1 block w-full" :value="old('product_name')" placeholder="Product Name" />
+                            <x-input-error class="mt-2" :messages="$errors->get('product_name')" />
                         </div>
-        
-                    </div>
-                </div>
-                <!-- row -->
-                <div class="row">
-        
-                    <div class="col-lg-8 col-12">
-                        <!-- card -->
-                        <div class="card mb-6 card-lg">
-                            <!-- card body -->
-                            <div class="card-body p-6 ">
-                                <h4 class="mb-4 h5">Product Information</h4>
-                                <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" name="annonce_id" value="{{ request('annonce_id') }}">
-                                    <div class="mb-3">
-                                        <label class="form-label">Product Name</label>
-                                        <input type="text" class="form-control" name="product_name" placeholder="Product Name" required>
-                                    </div>
-                                    <!-- input -->
-                                    <div class="mb-3">
-                                        <label class="form-label">Product Category</label>
-                                        <input type="text" class="form-control" name="category" placeholder="Product Category" required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label">Product Price/Value</label>
-                                        <input type="text" class="form-control" name="price" placeholder="Product Category" required>
-                                    </div>
-                                    <!-- input -->
-                                    <div class="mb-3">
-                                        <label class="form-label">Weight</label>
-                                        <input type="text" class="form-control" name="weight" placeholder="Weight" required>
-                                    </div>
-                                    <!-- input -->
-                                    <div class="mb-3">
-                                        <label class="form-label">Units</label>
-                                        <input type="text" class="form-control" name="units" placeholder="Units" required>
-                                    </div>
-                                    <div>
-                                        <div class="mb-3">
-                                            <!-- heading -->
-                                            <h4 class="mb-3 h5">Product Images</h4>
-                                            <!-- input -->
-                                            <input type="file" name="photo" class="form-control">
-                                        </div>
-                                    </div>
-                                    <!-- input -->
-                                    <div class="mb-3">
-                                        <h4 class="mb-3 h5">Product Descriptions</h4>
-                                        <textarea class="form-control" name="description" rows="4" placeholder="Product Description"></textarea>
-                                    </div>
-                                    <!-- input -->
-                                    <div class="mb-3">
-                                        <label class="form-label">Address</label>
-                                        <input type="text" class="form-control" name="address" placeholder="Address">
-                                    </div>
-                                    <!-- input -->
-                                 
-                                    <!-- button -->
-                                    <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary">Create Product</button>
-                                    </div>
-                                </form>
-                            </div>
+                    
+                        <div>
+                            <x-input-label for="price" :value="__('Product Price/Value')" />
+                            <x-text-input id="price" name="price" type="text" class="mt-1 block w-full" :value="old('price')" placeholder="Product value" />
+                            <x-input-error class="mt-2" :messages="$errors->get('price')" />
                         </div>
-                    </div>
-        
-                    <!-- Remaining HTML for the right-hand side (Price, Meta Data, etc.) remains unchanged -->
-        
+                    
+                        <div>
+                            <x-input-label for="weight" :value="__('Weight')" />
+                            <x-text-input id="weight" name="weight" type="text" class="mt-1 block w-full" :value="old('weight')" placeholder="Weight" />
+                            <x-input-error class="mt-2" :messages="$errors->get('weight')" />
+                        </div>
+                    
+                        <div>
+                            <x-input-label for="units" :value="__('Units')" />
+                            <x-text-input id="units" name="units" type="text" class="mt-1 block w-full" :value="old('units')" placeholder="Units" />
+                            <x-input-error class="mt-2" :messages="$errors->get('units')" />
+                        </div>
+                    
+                        <div>
+                            <x-input-label for="photo" :value="__('Product Images')" />
+                            <x-text-input id="photo" name="photo" type="file" class="form-control" />
+                            <x-input-error class="mt-2" :messages="$errors->get('photo')" />
+                        </div>
+                    
+                        <div>
+                            <x-input-label for="description" :value="__('Product Descriptions')" />
+                            <x-text-input class="mt-1 block w-full" id="description" name="description"  placeholder="Product Description">{{ old('description') }}</x-text-input>
+                            <x-input-error class="mt-2" :messages="$errors->get('description')" />
+                        </div>
+                    
+                        <div>
+                            <x-input-label for="address" :value="__('Address')" />
+                            <x-text-input id="address" name="address" type="text" class="form-control" :value="old('address')" placeholder="Address" />
+                            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+                        </div>
+                    
+                        <div class="flex items-center gap-4">
+                            <x-primary-button type="submit">Create Product</x-primary-button>
+                        </div>
+                    </form>
+                    
                 </div>
             </div>
-        </main>
-@endsection
+        </div>
+    </section>
+
+</x-app-layout>

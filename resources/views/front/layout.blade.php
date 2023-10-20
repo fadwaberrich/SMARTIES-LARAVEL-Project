@@ -32,7 +32,6 @@
 
     <x-app-layout >
 
- 
 
         <main class="p-10">
                   

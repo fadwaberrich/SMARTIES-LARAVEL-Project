@@ -69,11 +69,7 @@
                                             value="{{ $product->product_name }}" placeholder="Product Name" required>
                                     </div>
                                     <!-- input -->
-                                    <div class="mb-3">
-                                        <label class="form-label">Product Category</label>
-                                        <input type="text" class="form-control" name="category"
-                                            value="{{ $product->category }}" placeholder="Product Category" required>
-                                    </div>
+                                 >
         
                                     <div class="mb-3">
                                         <label class="form-label">Product Price/Value</label>
@@ -97,7 +93,7 @@
                                             <!-- heading -->
                                             <h4 class="mb-3 h5">Product Images</h4>
                                             <!-- input -->
-                                            <input type="file" name="image" class="form-control">
+                                            <input type="file" name="photo" class="form-control">
                                         </div>
                                     </div>
                                     <!-- input -->
