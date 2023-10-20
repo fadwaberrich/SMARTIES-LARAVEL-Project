@@ -1,58 +1,115 @@
     @extends('front.layout')
+    
     @section('content')
-<div class="container">
-   <!-- Formulaire de recherche -->
-   <form action="{{ route('Search') }}" method="GET" class="mb-3">
-    @csrf
-    <div class="input-group">
-        <input type="text" name="search" class="form-control" placeholder="Rechercher par titre">
-        <div class="input-group-append">
-            <button type="submit" class="btn btn-primary">Rechercher</button>
-        </div>
-    </div>
-</form>
-
-
-            <h1>Liste des Annonces</h1>
-            <div class="row">
-                @foreach ($annonces as $annonce)
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="{{ asset('storage/' . $annonce->photo) }}" class="card-img-top" alt="Image"
-                                style="max-height: 200px;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $annonce->titre }}</h5>
-                                <p class="card-text">
-                                    Catégorie:
-                                    @if ($annonce->id_categorie)
-                                        {{ \App\Models\Category::find($annonce->id_categorie)->name }}
-                                    @else
-                                        Catégorie non définie
-                                    @endif
-                                </p>
-                                <p class="card-text">{{ $annonce->description }}</p>
-                                <p class="card-text">{{ $annonce->telephone }}</p>
-                                <p class="card-text">{{ $annonce->echange }}</p>
-                            </div>
-                            <div class="card-footer">
-                                <!-- Bouton pour éditer l'annonce -->
-                                <a href="{{ route('annonces.edit', $annonce->id) }}" class="btn btn-primary">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-
-                                <!-- Formulaire pour supprimer l'annonce -->
-                                <form method="POST" action="{{ route('annonces.destroy', $annonce->id) }}"
-                                    style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
+        <div class="container">
+            <!-- Formulaire de recherche -->
+            <form action="{{ route('Search') }}" method="GET" class="mb-3">
+                @csrf
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Rechercher par titre">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Rechercher</button>
                     </div>
-                @endforeach
+                </div>
+            </form>
+
+            <div class="mt-8 mb-lg-14 mb-8">
+                <div class="container">
+                    <div class="row gx-10">
+                        <section class="col-lg-9 col-md-12">
+                            <!-- card -->
+                            <div class="card mb-4 bg-grey border-0">
+                                <!-- card body -->
+                                <div class="card-body p-9">
+                                    <h2 class="mb-0 fs-1">Liste des Annonces</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @foreach ($annonces as $annonce)
+                                    <div class="row g-4 row-cols-1 mt-2">
+                                        <div class="col">
+                                            <!-- card -->
+                                            <div class="card card-product">
+                                                <!-- card body -->
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <!-- col -->
+                                                        <div class="col-md-4 col-12">
+                                                            <div class="text-center position-relative">
+                                                                <a href="shop-single.html">
+                                                                    <!-- img --><img
+                                                                        src="{{ asset('storage/' . $annonce->photo) }}"
+                                                                        alt="Grocery Ecommerce Template"
+                                                                        class="mb-3 img-fluid" /></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-8 col-12 flex-grow-1">
+                                                            <!-- heading -->
+                                                            <div class="text-small mb-1">
+                                                                <a href="#!"
+                                                                    class="text-decoration-none text-muted"><small>
+                                                                        Catégorie:
+                                                                        @if ($annonce->id_categorie)
+                                                                            {{ \App\Models\Category::find($annonce->id_categorie)->name }}
+                                                                        @else
+                                                                            Catégorie non définie
+                                                                        @endif
+                                                                    </small></a>
+                                                            </div>
+                                                            <h2 class="fs-6">
+                                                                <a href=""
+                                                                    class="text-inherit text-decoration-none">{{ $annonce->user->name }}</a>
+                                                            </h2>
+                                                            <div class=" mt-6">
+                                                                <!-- price -->
+                                                                <div><span
+                                                                        class="text-dark">{{ $annonce->description }}</span>
+                                                                </div>
+
+                                                                <div class="mt-6">
+                                                                    <!-- price -->
+                                                                    <!-- btn -->
+                                                                    <div class="mt-3">
+                                                                        <a href="#!"
+                                                                            class="btn btn-icon btn-sm btn-outline-gray-400 text-muted"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#quickViewModal"><i
+                                                                                class="bi bi-eye" data-bs-toggle="tooltip"
+                                                                                data-bs-html="true"
+                                                                                title="Quick View"></i></a>
+                                                                    </div>
+                                                                    <!-- btn -->
+                                                                    <div class="mt-2">
+                                                                        <a href="#!" class="btn btn-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                width="16" height="16"
+                                                                                viewBox="0 0 24 24" fill="none"
+                                                                                stroke="currentColor" stroke-width="2"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round"
+                                                                                class="feather feather-shopping-bag me-2">
+                                                                                <path
+                                                                                    d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z">
+                                                                                </path>
+                                                                                <line x1="3" y1="6"
+                                                                                    x2="21" y2="6"></line>
+                                                                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                                                            </svg>
+                                                                            Barter!</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                @endforeach
+                            </div>
+
+                        </section>
+                    </div>
             </div>
-        </div>
-    @endsection
+        @endsection

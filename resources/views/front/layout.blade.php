@@ -30,14 +30,15 @@
 
 <body>
 
-    <x-app-layout>
+    <x-app-layout >
 
-   
+ 
 
-    <main class="p-10">
-        @yield('content')
+        <main class="p-10">
+                  
+            @yield('content')
 
-    </main>
+        </main>
 
 
     </x-app-layout>
@@ -65,7 +66,13 @@
     @vite('resources/assets/js/vendors/zoom.js')
     @vite('resources/assets/js/vendors/increment-value.js')
 
+    <!-- Libs CSS -->
+    <link href="../assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="../assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet">
+    <link href="../assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
 
+
+    <!-- Theme CSS -->
 </body>
 
 

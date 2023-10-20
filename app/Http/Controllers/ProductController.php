@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Annonce;
+use App\Models\ReviewRating;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -54,7 +55,13 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $product = $product->load('reviews');
-        return view('products.show', compact('product'));
+
+          $ratingsCount = ReviewRating::where('product_id', $product->id)
+        ->selectRaw('star_rating, COUNT(*) as count')
+        ->groupBy('star_rating')
+        ->pluck('count', 'star_rating');
+
+    return view('products.show', compact('product', 'ratingsCount'));
     }
     
 

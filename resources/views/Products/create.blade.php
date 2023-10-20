@@ -1,31 +1,5 @@
 @extends('back.layout')
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="Codescandy" name="author">
-    <title>Reviews Dashboard - FreshCart </title>
-
-
-</head>
-
-<body>
-
-
-  
-    <!-- main wrapper-->
-    <div class="main-wrapper">
-        <nav class="navbar-vertical-nav d-none d-xl-block ">
-        </nav>
-        <nav class="navbar-vertical-nav offcanvas offcanvas-start navbar-offcanvac" tabindex="-1"
-            id="offcanvasExample">
-        </nav>
-
+@section('content')
         <main class="main-content-wrapper">
             <!-- container -->
             <div class="container">
@@ -123,12 +97,4 @@
                 </div>
             </div>
         </main>
-        
-
-
-</div>
-</body>
-
-
-
-</html>
+@endsection
