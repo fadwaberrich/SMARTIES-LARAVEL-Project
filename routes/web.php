@@ -68,7 +68,7 @@ Route::get('/products/{product}/reviews', [ProductController::class, 'showReview
 
 Route::get('eventsfront', [EventController::class, 'index2']) ->name('events.index2');
 Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('products.create');
-
+Route::get('/user-announcements', [AnnonceController::class,'ShowUserAnnouncements'])->name('user.announcements');
 
 Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
 Route::resource('venuess', VenueController::class);

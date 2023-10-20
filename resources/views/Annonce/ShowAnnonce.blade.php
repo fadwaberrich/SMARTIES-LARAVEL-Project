@@ -25,10 +25,11 @@
                     </header>
 
                     <section class="col-lg-9 col-md-12">
-                        <div class="row" >
+                        <div class="row">
                             @foreach ($annonces as $annonce)
                                 <div class="row g-4 row-cols-1 mt-2">
-                                    <div class="card card-product" style="border: 2px solid #0000FF;">                                        <!-- card body -->
+                                    <div class="card card-product" style="border: 2px solid #0000FF;">
+                                        <!-- card body -->
                                         <div class="card-body">
                                             <div class="row align-items-center">
                                                 <!-- col -->
@@ -103,4 +104,7 @@
                             @endforeach
                         </div>
                     </section>
+                </div>
+            </div>
+        </div>
 </x-app-layout>

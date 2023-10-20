@@ -69,8 +69,7 @@
                                             value="{{ $product->product_name }}" placeholder="Product Name" required>
                                     </div>
                                     <!-- input -->
-                                 >
-        
+                                 
                                     <div class="mb-3">
                                         <label class="form-label">Product Price/Value</label>
                                         <input type="text" class="form-control" name="price" value="{{ $product->price }}"

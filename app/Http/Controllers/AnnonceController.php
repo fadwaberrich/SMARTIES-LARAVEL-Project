@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Annonce;
 use App\Models\Category;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -32,7 +33,7 @@ class AnnonceController extends Controller
     {
         $validatedData = $request->validate([
             'id_categorie'=>'nullable|required',
-            'id_user'=>'required',
+            'id_user'=>'nullable|required',
             'titre' => 'required|string',
             'description' => 'required|string',
             'telephone' => 'required|numeric',
@@ -94,6 +95,17 @@ class AnnonceController extends Controller
         return redirect()->route('annonces.index')->with('success', 'Annonce updated successfully');
     }
 
+    public function showUserAnnouncements()
+{
+    // Get the currently logged-in user
+    $user = auth()->user();
+
+    // Retrieve announcements for the user
+    $userAnnouncements = Annonce::where('id_user', $user->id)->get();
+
+    return view('Annonce.ShowUserAnnouncements', compact('userAnnouncements'));
+}
+
     public function destroy(Annonce $annonce)
     {
         $annonce->delete();
@@ -119,16 +131,7 @@ class AnnonceController extends Controller
     public function search(Request $request)
 {
     $search = $request->input('search');
-    
-    // Affichez le terme de recherche pour vérification
-  
-
-    // Effectuez la recherche en utilisant le titre de l'annonce
-    $annonces = Annonce::where('titre', 'like', '%' . $search . '%')->get();
-
-    // Affichez les résultats intermédiaires pour vérification
-   
-
+    $annonces = Annonce::where('titre', 'like', '%' . $search . '%')->get();   
     return view('Annonce.Find', compact('annonces', 'search'));
 }
 

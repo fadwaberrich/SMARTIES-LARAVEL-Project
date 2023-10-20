@@ -24,9 +24,7 @@
                             <x-nav-link :href="route('annonces.index')" :active="request()->routeIs('annonces.*')">
                                 {{ __('Annonces') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('annonces.create')" :active="request()->routeIs('annonces.*')">
-                                {{ __('Déposer une annonce') }}
-                            </x-nav-link>
+
                             <x-nav-link :href="route('barterRequests.index')" :active="request()->routeIs('barterRequests.*')">
                                 {{ __('barter Requests') }}
                             </x-nav-link>
@@ -68,9 +66,12 @@
                                         {{ __('Profile') }}
                                     </x-dropdown-link>
 
-
                                     <x-dropdown-link :href="route('annonces.create')" :active="request()->routeIs('annonces.*')">
                                         {{ __('Déposer une annonce') }}
+                                    </x-dropdown-link>
+
+                                    <x-dropdown-link :href="route('user.announcements')" :active="request()->routeIs('annonces.*')">
+                                        {{ __('Mes annonces') }}
                                     </x-dropdown-link>
 
                                     <!-- Authentication -->
