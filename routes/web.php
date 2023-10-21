@@ -45,18 +45,14 @@ Route::get('/', function () {
 Route::get('/back', function () {
     return view('back/layout');
 })->name('back');
-Route::resource("barterRequests", BarterRequestController::class);
-Route::resource('forms', FormController::class);
-Route::resource('reports', ReportController::class);
+
 Route::post('reports', [ReportController::class, 'store'])->name('reports.store');
 Route::get('/forms/{form}/create-report', [ReportController::class, 'create'])->name('reports.create');
 Route::get('/forms/create', [FormController::class, 'create'])->name('forms.create');
 
 Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 
-Route::resource("forum", ForumController::class);
-Route::resource("commentforum", CommentForumController::class);
-Route::resource('review-ratings', ReviewController::class);
+
 Route::get('/category', [CategoryController::class, 'show'])->name('showCategory');
 Route::get('/category/form', [CategoryController::class, 'form'])->name('formCategory');
 Route::post('/category', [CategoryController::class, 'add'])->name('addCategory');
@@ -75,7 +71,14 @@ Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Searc
 Route::delete('/annonces/{annonce}/destroyBack', [AnnonceController::class, 'destroyBack'])->name('destroyBack');
 Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
 
-/// ressources/////
+///***************************** */
+///  svp  7otou les ressources lkol lhne 5ater 9a3din yebloquou f les routes lfou9/////
+Route::resource("forum", ForumController::class);
+Route::resource("commentforum", CommentForumController::class);
+Route::resource('review-ratings', ReviewController::class);
+Route::resource("barterRequests", BarterRequestController::class);
+Route::resource('forms', FormController::class);
+Route::resource('reports', ReportController::class);
 Route::resource('venuess', VenueController::class);
 Route::resource('annonces', AnnonceController::class);
 Route::resource("barterRequests", BarterRequestController::class);
