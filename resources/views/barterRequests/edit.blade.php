@@ -22,37 +22,6 @@
             @enderror
         </div>
 
-        <!-- Add Price Field -->
-        <div class="form-group py-2">
-            <label for="price">Price:</label>
-            <input type="number" class="form-control" name="price" id="price" value="{{ $barterRequest->price }}">
-            
-            <!-- Display Price Error Message -->
-            @error('price')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <!-- Display Current Image -->
-        <div class="form-group py-2">
-            @if($barterRequest->image)
-                <label>Current Image:</label>
-                <img src="{{ asset('storage/' . $barterRequest->image) }}" alt="Current Image" width="100">
-            @else
-                <p>No Current Image</p>
-            @endif
-        </div>
-
-        <!-- Update Image -->
-        <div class="form-group py-2">
-            <label for="image">Update Image:</label>
-            <input type="file" class="form-control-file" name="image" id="image">
-            
-            <!-- Display Image Error Message -->
-            @error('image')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
 
         <!-- Add other form fields here, e.g., barter_id, user_id -->
 

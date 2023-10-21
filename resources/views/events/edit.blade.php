@@ -3,7 +3,7 @@
 @section('content')
 <div class="container" style="margin-top: 30px;">
 
-    
+
     <h1>Edit Event</h1>
 
     <form method="POST" action="{{ route('events.update', $event->id) }}">
@@ -13,29 +13,39 @@
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" name="name" id="name" class="form-control" value="{{ $event->name }}" >
-        </div>
+            @error('name')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror   </div>
 
         <div class="form-group">
             <label for="description">Description:</label>
             <textarea name="description" id="description" class="form-control" rows="4" >{{ $event->description }}</textarea>
-        </div>
+            @error('description')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror </div>
 
         <div class="form-group">
             <label for="date">Date:</label>
             <input type="date" name="date" id="date" class="form-control" value="{{ $event->date }}" >
-        </div>
+            @error('date')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror     </div>
 
         <div class="form-group">
             <label for="location">Location:</label>
             <input type="text" name="location" id="location" class="form-control" value="{{ $event->location }}" >
-        </div>
+            @error('location')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror    </div>
 
-   
+
 
         <div class="form-group">
             <label for="ticket_price">Ticket Price:</label>
             <input type="number" name="ticket_price" id="ticket_price" class="form-control" step="0.01" value="{{ $event->ticket_price }}" >
-        </div>
+            @error('ticket_price')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror    </div>
 
         <div class="form-group">
             <label for="status">Status:</label>
@@ -45,7 +55,9 @@
                 <option value="past" {{ $event->status === 'past' ? 'selected' : '' }}>Past</option>
                 <option value="canceled" {{ $event->status === 'canceled' ? 'selected' : '' }}>Canceled</option>
             </select>
-        </div>
+            @error('status')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror  </div>
 
         <button type="submit" class="btn btn-primary">Update Event</button>
     </form>

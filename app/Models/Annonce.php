@@ -30,5 +30,10 @@ public function user()
 {
     return $this->belongsTo(User::class, 'id_user');
 }
-   
+    // Define the one-to-many relationship with BarterRequest
+    public function barterRequests()
+    {
+        return $this->hasMany(BarterRequest::class, 'annonce_id');
+    }
+
 }

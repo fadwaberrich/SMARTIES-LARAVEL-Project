@@ -17,22 +17,13 @@
 
                     <!-- Card Body (Image at the top) -->
                     <div class="card-body p-0">
-                        @if($barterRequest->image)
-                        <div class="image-container" style="position: relative; overflow: hidden; width: 100%; height: 0; padding-top: 56.25%;">
-                            <img src="{{ asset('storage/' . $barterRequest->image) }}" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" class="img-fluid rounded-top">
-                        </div>
-                        @else
-                            No Image
-                        @endif
+
 
                         <div class="p-3">
                             <!-- Message -->
                             <h6 class="card-subtitle mb-2 text-muted">Message:</h6>
                             <p class="card-text">{{ $barterRequest->message }}</p>
 
-                            <!-- Price -->
-                            <h6 class="card-subtitle mb-2 text-muted">Price:</h6>
-                            <p class="card-text">{{ $barterRequest->price }} dt</p>
                         </div>
                     </div>
 

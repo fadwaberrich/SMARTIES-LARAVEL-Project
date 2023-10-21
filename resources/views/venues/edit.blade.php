@@ -3,7 +3,7 @@
 @section('content')
 <div class="container" style="margin-top: 30px;">
 
-    
+
     <h1>Edit Venue</h1>
 
     <form method="POST" action="{{ route('venuess.update', $venue->id) }}" enctype="multipart/form-data">
@@ -13,42 +13,62 @@
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" name="name" id="name" class="form-control" value="{{ $venue->name }}" >
+            @error('name')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
             <label for="address">Address:</label>
             <input type="text" name="address" id="address" class="form-control" value="{{ $venue->address }}" >
+            @error('address')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
             <label for="capacity">Capacity:</label>
             <input type="number" name="capacity" id="capacity" class="form-control" value="{{ $venue->capacity }}" >
+
+            @error('capacity')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
             <label for="description">Description:</label>
             <textarea name="description" id="description" class="form-control" rows="4" >{{ $venue->description }}</textarea>
-        </div>
+            @error('description')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror </div>
 
         <div class="form-group">
             <label for="website">Website:</label>
             <input type="url" name="website" id="website" class="form-control" value="{{ $venue->website }}">
-        </div>
+            @error('website')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror  </div>
 
         <div class="form-group">
             <label for="phone">Phone:</label>
             <input type="tel" name="phone" id="phone" class="form-control" value="{{ $venue->phone }}">
-        </div>
+            @error('phone')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror </div>
 
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" class="form-control" value="{{ $venue->email }}">
-        </div>
+            @error('email')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror  </div>
 
         <div class="form-group">
             <label for="image">Image:</label>
             <input type="file" name="image" id="image" class="form-control-file">
-        </div>
+            @error('image')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror  </div>
 
         <button type="submit" class="btn btn-primary">Update Venue</button>
     </form>

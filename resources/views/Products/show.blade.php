@@ -1,7 +1,7 @@
 @php
     $totalRatings = $product->reviews->count();
     $averageRating = $totalRatings > 0 ? $product->reviews->avg('star_rating') : 0;
-    
+
 @endphp
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -96,12 +96,12 @@
          .rated > label:hover ~ input:checked ~ label {
          color: #c59b08;
          }
-</style>  
+</style>
 
 
 @extends('front.layout')
 @section('content')
-        
+
     <div class="container">
         <p>hey</p>
         <div class="row">
@@ -139,9 +139,9 @@
 
                             <div class="col-xxl-4 col-lg-4 col-md-5 col-5 d-grid">
                                 <!-- button -->
-                                <!-- btn --> <button type="button" class="btn btn-primary"><i
-                                        class="feather-icon icon-shopping-bag me-2"></i>Add to
-                                    cart</button>
+                                <a href="{{ route('barterRequests.create') }}?product_id={{ $product->id }}&annonce_id={{ $product->annonce->id }}" class="btn btn-primary">
+    <i class="feather-icon icon-shopping-bag me-2"></i>Propose barter
+</a>
                             </div>
                             <div class="col-md-4 col-4">
                                 <!-- btn -->
@@ -306,7 +306,7 @@
                                             <!-- title -->
                                              <h4 class="mb-3">Customer reviews</h4>
                                                 <span>
-                                              <!-- rating --> 
+                                              <!-- rating -->
                                               <small class="text-warning">
                                                 @for ($i = 1; $i <= 5; $i++)
                                                     @if ($i <= $averageRating)
@@ -324,12 +324,12 @@
                                             <small class="ms-3">
                                                 {{ $totalRatings }} global {{ $totalRatings == 1 ? 'rating' : 'ratings' }}
                                             </small>
-                                            
+
                                             </span>
                                           </div>
-                                    
-                                      
-                    
+
+
+
                                         </div>
                                       </div>
                                       <!-- col -->
@@ -350,7 +350,7 @@
                                             <div class="ms-5">
                                               <h6 class="mb-1">
                                            {{$review->user->name}}
-                    
+
                                               </h6>
                                               <!-- select option -->
                                               <!-- content -->
@@ -364,9 +364,9 @@
                                               <!-- text-->
                                               <p> {{$review->comments}} </p>
                                               <div>
-                                        
+
                                               </div>
-                                           
+
                                             </div>
                                           </div>
                                           @endforeach
@@ -378,7 +378,7 @@
                                       </div>
                                     </div>
                                   </div>
-                            
+
                         </div>
                                 </div>
                             </div>

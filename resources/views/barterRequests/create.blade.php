@@ -21,23 +21,7 @@
             @enderror
         </div>
 
-        <!-- Add Price Field -->
-        <div class="form-group py-2">
-            <label for="price">Price:</label>
-            <input type="number" class="form-control" name="price" id="price" value="{{ old('price') }}">
-            @error('price')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
 
-        <!-- Add Image Field -->
-        <div class="form-group py-2">
-            <label for="image">Image:</label>
-            <input type="file" class="form-control-file" name="image" id="image">
-            @error('image')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
 
         <!-- Add other form fields here, e.g., barter_id, user_id -->
 

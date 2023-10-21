@@ -4,8 +4,6 @@
 <div class="" style="margin-left:210px;">
     <h1>Responses to Requests</h1>
 
-    <a href="{{ route('responses.create') }}" class="btn btn-primary">Create Response</a>
-
     <div class="row mt-3">
         @foreach($responses as $response)
             <div class="col-md-4 mb-4">
@@ -20,14 +18,16 @@
                         <!-- Message -->
                         <h6 class="card-subtitle mb-2 text-muted">Message:</h6>
                         <p class="card-text">{{ $response->message }}</p>
-
-                        <!-- Status -->
-                        <h6 class="card-subtitle mb-2 text-muted">Status:</h6>
-                        <p class="card-text">{{ $response->status }}</p>
-
                         <!-- Barter Request -->
                         <h6 class="card-subtitle mb-2 text-muted">Barter Request:</h6>
                         <p class="card-text">{{ $response->barterRequest->title }}</p>
+
+                        <!-- Status -->
+                        <h6 class="card-subtitle mb-2 text-muted">Status:</h6>
+                        <p class="card-text" style="color: {{ $response->status === 'accepted' ? 'green' : 'red' }}">
+                            {{ $response->status }}
+                        </p>
+
 
                         <!-- Add other fields related to the ResponseToRequest entity -->
                     </div>

@@ -32,7 +32,7 @@ class VenueController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image rules
             // Add other validation rules for additional form fields
         ];
-    
+
         // Custom error messages
         $customMessages = [
             'capacity.integer' => 'The capacity must be an integer value.',
@@ -42,16 +42,16 @@ class VenueController extends Controller
             'image.max' => 'The image file size cannot exceed 2MB.',
             // Add custom error messages for other fields as needed
         ];
-    
+
         $request->validate($rules, $customMessages);
-    
+
         // Handle the image upload
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('venues', 'public'); // Store the image in the "public" disk under the "venues" directory
         } else {
             $imagePath = null;
         }
-    
+
         // Create a new Venue record with the "image" field
         $venue = new Venue([
             'name' => $request->input('name'),
@@ -64,11 +64,11 @@ class VenueController extends Controller
             'image' => $imagePath,
         ]);
         $venue->save();
-    
+
         return redirect()->route('venuess.index')
             ->with('success', 'Venue created successfully.');
     }
-    
+
 
     public function show($id)
     {
@@ -85,9 +85,37 @@ class VenueController extends Controller
     public function update(Request $request, $id)
     {
         $venue = Venue::findOrFail($id);
+
+        // Define validation rules for the form fields
+        $rules = [
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'capacity' => 'required|integer|min:0', // Capacity must be an integer and positive or zero
+            'description' => 'required|string',
+            'website' => 'required|nullable|url',
+            'phone' => 'nullable|string',
+            'email' => 'nullable|email',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Image rules
+            // Add other validation rules for additional form fields
+        ];
+
+        // Custom error messages
+        $customMessages = [
+            'capacity.integer' => 'The capacity must be an integer value.',
+            'capacity.min' => 'The capacity must be a positive number or zero.',
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'The image must be in one of the following formats: jpeg, png, jpg, gif.',
+            'image.max' => 'The image file size cannot exceed 2MB.',
+            // Add custom error messages for other fields as needed
+        ];
+
+        $request->validate($rules, $customMessages);
+
         $venue->update($request->all());
+
         return redirect()->route('venuess.index');
     }
+
 
     public function destroy($id)
     {

@@ -14,28 +14,6 @@
                 <td>{{ $barterRequest->message }}</td>
             </tr>
 
-            <tr>
-                <th>Price:</th>
-                <td>{{ $barterRequest->price ? '$' . number_format($barterRequest->price, 2) : 'N/A' }}</td>
-            </tr>
-            <tr>
-                <th>Image:</th>
-                <td>
-                    @if($barterRequest->image)
-                        <img src="{{ asset('storage/' . $barterRequest->image) }}" alt="Image" width="200">
-                    @else
-                        No Image
-                    @endif
-                </td>
-            </tr>
-            <tr>
-                <th>Barter ID:</th>
-                <td>{{ $barterRequest->barter_id }}</td>
-            </tr>
-            <tr>
-                <th>User ID:</th>
-                <td>{{ $barterRequest->user_id }}</td>
-            </tr>
             <!-- Add more rows for other properties if needed -->
         </table>
 

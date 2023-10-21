@@ -27,7 +27,7 @@ class AnnonceController extends Controller
     {
         $categories = Category::all();
         return view('Annonce.FormAnnonce', compact('categories'));
-       
+
     }
 
     public function store(Request $request)
@@ -42,10 +42,10 @@ class AnnonceController extends Controller
             'echange' => 'nullable|required', ],
              [
             'titre.required' => 'Le champ titre est obligatoire.',
-             
+
             'description.required' => 'Le champ description est obligatoire.',
-           
-            'telephone.required' => 'Le champ téléphone est obligatoire.', 
+
+            'telephone.required' => 'Le champ téléphone est obligatoire.',
             'telephone.numeric' => 'Le champ téléphone doit être un numéro.',
         ]);
 
@@ -53,8 +53,8 @@ class AnnonceController extends Controller
             $imagePath = $request->file('photo')->store('annonce_photos', 'public');
             $validatedData['photo'] = $imagePath;
         }
-        
-   
+
+
 
         $announcement = Annonce::create($validatedData);
         $announcementId = $announcement->id;
@@ -63,15 +63,15 @@ class AnnonceController extends Controller
 
     public function show(Annonce $annonce)
     {
-        return view('annonces.show', compact('annonce'));
+        return view('annonce.show', compact('annonce'));
     }
-    
+
 
     public function edit(Annonce $annonce)
-   
-    { 
+
+    {
         $categories = Category::all();
-       
+
         return view('Annonce.FormEditAnnonce', compact('categories','annonce'));
     }
 
@@ -122,7 +122,7 @@ class AnnonceController extends Controller
         $annonce->delete();
         $annonces = Annonce::all();
         return view('back.ShowAnnonceBack', compact('annonces'));
-        
+
     }
 
 
@@ -132,15 +132,15 @@ class AnnonceController extends Controller
     public function search(Request $request)
 {
     $search = $request->input('search');
-    
+
     // Affichez le terme de recherche pour vérification
-  
+
 dd($search);
     // Effectuez la recherche en utilisant le titre de l'annonce
     $annonces = Annonce::where('titre', 'like', '%' . $search . '%')->get();
 
     // Affichez les résultats intermédiaires pour vérification
-   
+
 
     return view('Annonce.Find', compact('annonces', 'search'));
 }
@@ -152,10 +152,10 @@ public function generatePDF()
 
      // Chargez la vue dans laquelle vous souhaitez afficher les annonces
      $view = view('back.pdfAnnonce', compact('annonces'));
- 
+
      // Générez le PDF à partir de la vue
      $pdf = PDF::loadHtml($view);
- 
+
      // Téléchargez le PDF ou affichez-le dans le navigateur
      return $pdf->download('annonces.pdf');
      //Pdf::loadView($view)->stream('annonces.pdf');
