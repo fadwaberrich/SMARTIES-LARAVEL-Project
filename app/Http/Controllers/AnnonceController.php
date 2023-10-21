@@ -93,7 +93,7 @@ class AnnonceController extends Controller
 
         $annonce->update($validatedData);
 
-        return redirect()->route('annonces.index')->with('success', 'Annonce updated successfully');
+        return redirect()->route('user.announcements')->with('success', 'Annonce updated successfully');
     }
 
     public function showUserAnnouncements()
@@ -111,7 +111,7 @@ class AnnonceController extends Controller
     {
         $annonce->delete();
 
-        return redirect()->route('annonces.index')->with('success', 'Annonce deleted successfully');
+        return redirect()->route('user.announcements')->with('success', 'Annonce deleted successfully');
     }
 
 
@@ -134,8 +134,8 @@ class AnnonceController extends Controller
     $search = $request->input('search');
 
     // Affichez le terme de recherche pour vérification
+  
 
-dd($search);
     // Effectuez la recherche en utilisant le titre de l'annonce
     $annonces = Annonce::where('titre', 'like', '%' . $search . '%')->get();
 
