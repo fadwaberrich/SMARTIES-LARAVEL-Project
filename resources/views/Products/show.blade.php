@@ -101,8 +101,9 @@
 
 @extends('front.layout')
 @section('content')
-
+        
     <div class="container">
+        <p>hey</p>
         <div class="row">
             <div class="col-md-6">
                 <img src="{{ asset('storage/' . $product->photo) }}" class="card-img-top" alt="Image">

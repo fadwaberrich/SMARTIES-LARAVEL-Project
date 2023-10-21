@@ -70,13 +70,13 @@ Route::get('eventsfront', [EventController::class, 'index2']) ->name('events.ind
 Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('products.create');
 Route::get('/user-announcements', [AnnonceController::class,'ShowUserAnnouncements'])->name('user.announcements');
 
+Route::get('/annonces/generatePDF', [AnnonceController::class,'generatePDF'])->name('generatePDF');
 Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
-Route::resource('venuess', VenueController::class);
-Route::middleware('auth')->group(function () {
-    Route::resource('review-ratings', ReviewController::class);
-});
-Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
 Route::delete('/annonces/{annonce}/destroyBack', [AnnonceController::class, 'destroyBack'])->name('destroyBack');
+Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
+
+/// ressources/////
+Route::resource('venuess', VenueController::class);
 Route::resource('annonces', AnnonceController::class);
 Route::resource("barterRequests", BarterRequestController::class);
 Route::resource('events', EventController::class);
@@ -84,5 +84,8 @@ Route::resource('products', ProductController::class);
 Route::resource("responses", ResponseController::class);
 Route::middleware('auth')->group(function () {
     Route::resource('annonces', AnnonceController::class);
+});
+Route::middleware('auth')->group(function () {
+    Route::resource('review-ratings', ReviewController::class);
 });
 require __DIR__ . '/auth.php';

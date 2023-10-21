@@ -220,6 +220,7 @@
             </div>
         </div>
     </nav>
+    
     <!-- main wrapper-->
     <div class="main-wrapper">
 
@@ -244,12 +245,7 @@
           <div>
             <h2>Categories</h2>
               <!-- breacrumb -->
-              <nav aria-label="breadcrumb">
-              <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">Dashboard </li>
-                <li aria-current="page"> /Categories </li>
-              </ol>
-            </nav>
+             
           </div>
           <!-- button -->
           <div>
@@ -266,23 +262,9 @@
           <div class="px-6 py-6 ">
             <div class="row justify-content-between">
               <!-- form -->
-              <div class="col-lg-4 col-md-6 col-12 mb-2 mb-lg-0">
-                <form  class="d-flex" role="search" method="GET" action="">
-                    <div class="form-group">
-                        <input class="form-control" type="search" placeholder="Search categories" aria-label="Search" name="search">
-                        <button type="submit">Rechercher</button>
-                    </div>
-                </form>
-              </div>
+              
               <!-- select option -->
-              <div class="col-lg-2 col-md-4 col-12">
-                <select class="form-select">
-                  <option selected>Status</option>
-                  <option value="1">Active</option>
-                  <option value="2">Deactive</option>
-                  <option value="3">Draft</option>
-                </select>
-              </div>
+              
             </div>
           </div>
           <!-- card body -->

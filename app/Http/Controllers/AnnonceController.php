@@ -8,6 +8,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AnnonceController extends Controller
 {
@@ -131,10 +132,35 @@ class AnnonceController extends Controller
     public function search(Request $request)
 {
     $search = $request->input('search');
-    $annonces = Annonce::where('titre', 'like', '%' . $search . '%')->get();   
+    
+    // Affichez le terme de recherche pour vérification
+  
+dd($search);
+    // Effectuez la recherche en utilisant le titre de l'annonce
+    $annonces = Annonce::where('titre', 'like', '%' . $search . '%')->get();
+
+    // Affichez les résultats intermédiaires pour vérification
+   
+
     return view('Annonce.Find', compact('annonces', 'search'));
 }
+//////pdf annonce////
+public function generatePDF()
+{
+     // Récupérez la liste des annonces depuis votre modèle
+     $annonces = Annonce::all();
 
+     // Chargez la vue dans laquelle vous souhaitez afficher les annonces
+     $view = view('back.pdfAnnonce', compact('annonces'));
+ 
+     // Générez le PDF à partir de la vue
+     $pdf = PDF::loadHtml($view);
+ 
+     // Téléchargez le PDF ou affichez-le dans le navigateur
+     return $pdf->download('annonces.pdf');
+     //Pdf::loadView($view)->stream('annonces.pdf');
+     // $pdf->download('annonces.pdf');
+}
 
 
 }

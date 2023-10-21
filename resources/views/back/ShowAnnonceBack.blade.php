@@ -7,6 +7,9 @@
 
     
     <h1>Liste des Annonces</h1>
+
+    <a href="{{ route('generatePDF') }}" class="btn btn-primary mb-3">Générer un PDF</a>
+
     <table class="table">
         <thead>
             <tr>
