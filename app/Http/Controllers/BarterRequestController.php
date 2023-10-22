@@ -14,9 +14,20 @@ class BarterRequestController extends Controller
      */
     public function index()
     {
+      //  $user = auth()->user();
+
+       // if ($user) {
+           // $user_id = $user->id;
+
+           // $barterRequests = BarterRequest::where('user_id', $user_id)
+            //    ->latest()
+               // ->get();
+      //  } else {
+          //  $barterRequests = BarterRequest::latest()->get();
+       // }
         $barterRequests = BarterRequest::latest()->get();
 
-        // On transmet les Post à la vue
+        // Pass the filtered BarterRequests to the view
         return view("barterRequests.index", compact("barterRequests"));
     }
 
@@ -38,6 +49,10 @@ class BarterRequestController extends Controller
     public function store(Request $request)
     {
 
+        if (auth()->check()) {
+            $user = auth()->user(); // Get the authenticated user
+            $user_id = $user->id; // Get the user's ID
+        }
         $annonce_id = session('annonce_id');
 
         // Validation rules for the form fields in the update method
@@ -63,6 +78,7 @@ class BarterRequestController extends Controller
         ]);
 
     $barterRequest->annonce_id = $annonce_id;
+    $barterRequest->user_id = $user_id;
 
     $barterRequest->save();
     $request->session()->forget('annonce_id');

@@ -8,17 +8,25 @@ use Illuminate\Http\Request;
 use App\Models\BarterRequest;
 class ResponseController extends Controller
 {
-    /**
-     * Display a listing of the responses.
-     */
     public function index()
     {
-        $responses = ResponseToRequest::latest()->get();
+        // Get the currently authenticated user
+        $user = auth()->user();
 
-        // Pass the responses to the view
+        // Check if a user is authenticated
+        if ($user) {
+            // Retrieve responses related to the user's BarterRequests
+            $responses = ResponseToRequest::whereHas('barterRequest', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })->latest()->get();
+        } else {
+            // Handle the case where no user is authenticated, e.g., show all responses
+            $responses = ResponseToRequest::latest()->get();
+        }
+
+        // Pass the filtered responses to the view
         return view("responses.index", compact("responses"));
     }
-
     /**
      * Show the form for creating a new response.
      */

@@ -23,8 +23,6 @@
         </tr>
         <!-- Add more rows for other properties related to the ResponseToRequest entity if needed -->
     </table>
-
-    <a href="{{ route('responses.edit', $response->id) }}" class="btn btn-warning">Edit</a>
     <!-- Add a delete button/form here if needed -->
 </div>
 @endsection

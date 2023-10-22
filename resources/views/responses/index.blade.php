@@ -35,7 +35,6 @@
                     <!-- Card Footer (e.g., Actions) -->
                     <div class="card-footer mt-auto">
                         <a href="{{ route('responses.show', $response->id) }}" class="btn btn-info">View</a>
-                        <a href="{{ route('responses.edit', $response->id) }}" class="btn btn-warning">Edit</a>
 
                         <!-- Delete Button/Modal Trigger -->
                         <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $response->id }}">Delete</a>
