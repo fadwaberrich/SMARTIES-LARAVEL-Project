@@ -10,12 +10,18 @@ class CommentForum extends Model
     use HasFactory;
     protected $fillable = [
         'forum_id',
-        'comment'
+        'comment',
+        'user_id',
+
     ];
 
     public function pub()
     {
         return $this->belongsTo(Forum::class, 'forum_id');
+    }
+    public function sender()
+    {
+        return $this->belongsTo(User::class,'user_id');
     }
 
 }

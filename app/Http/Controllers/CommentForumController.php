@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CommentForum;
 use App\Models\Forum;
+use Illuminate\Support\Facades\Auth;
 
 class CommentForumController extends Controller
 {
+
     public function store(Request $request)
     {
         $id = (int)$request->input('id');
@@ -27,13 +29,21 @@ class CommentForumController extends Controller
     
         $record = Forum::find($id);
     
+        // Obtenir l'utilisateur actuellement connecté
+        $user = Auth::user();
+    
         $comment = new CommentForum([
             'comment' => $request->input('comment'),
         ]);
+    
+        // Affecter l'utilisateur connecté au commentaire
+        $comment->user_id = $user->id;
+    
         $record->comments()->save($comment);
     
         return back();
     }
+    
     
 
        public function destroy(int $comment)

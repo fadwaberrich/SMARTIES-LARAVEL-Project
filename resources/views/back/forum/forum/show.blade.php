@@ -1,5 +1,5 @@
 
-@extends('front.layout')
+@extends('back.layout')
 @section('content')
 
   <main id="main">
@@ -48,7 +48,6 @@
                   <div>
                     <h5><a href="">{{$comment->sender->name}}</a></h5>
                     <time datetime="2020-01-01">{{$comment->created_at}}</time> 
-                    @if((auth()->user() && auth()->user()->id === $comment->user_id) || auth()->user()->role='admin')
 
                     <form action="{{ route('commentforum.destroy', $comment->id) }}" method="POST" class="d-inline">
                     @csrf
@@ -57,7 +56,6 @@
         <i class="bi bi-archive-fill" style="font-size: 20px;"></i>
     </button>
                     </form>
-                    @endif
 
                     <p>
                      {{$comment->comment}}
@@ -68,22 +66,7 @@
               @endforeach
 
 
-              <div class="reply-form">
-    <h4>Leave a Reply</h4>
-    <form method="POST" action="{{ route('commentforum.store') }}">
-        @csrf
-        <div class="row">
-            <div class="col form-group">
-                <textarea name="comment" id="comment" class="form-control" placeholder="Your Comment*"></textarea>
-                @error('comment')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-        </div>
-        <input type="hidden" name="id" value="{{ $forum->id }}">
-        <button type="submit" class="btn btn-primary">Post Comment</button>
-    </form>
-</div>
+        
 
 
             </div><!-- End blog comments -->
@@ -104,7 +87,7 @@
 
                   <div class="post-item mt-3">
                     <div>
-                      <h4><a href="{{ route('forum.show', $forum->id) }}">{{$forum->title}}</a></h4>
+                      <h4><a href="{{ route('backforum.show', $forum->id) }}">{{$forum->title}}</a></h4>
                       <time datetime="2020-01-01">{{$forum->created_at}}</time>
                     </div>
                   </div><!-- End recent post item-->

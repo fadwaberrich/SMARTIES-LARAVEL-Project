@@ -7,34 +7,26 @@ use App\Models\Forum;
 use App\Http\Controllers\Controller;
 use App\Models\CommentForum;
 use Illuminate\Support\Facades\Auth;
-
-class ForumController extends Controller
+class ForumBackController extends Controller
 {
-
-
- /**
-     * Display the specified resource.
-     */
-    public function show(Forum $forum)
+    public function show(int $id)
     {
-        $comments = CommentForum::with('sender')->where('forum_id', $forum->id)->get();
+        $comments = CommentForum::with('sender')->where('forum_id', $id)->get();
+        $forum = Forum::find($id);
 
         $forums=Forum::all();
         $commentsCount = count($comments);
-        return view('forum.show', compact('forum','comments','forums','commentsCount'));
+        return view('back/forum/forum.show', compact('forum','comments','forums','commentsCount'));
     }
 
 
-   /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Forum $forum)
+    public function destroy(int $id)
     {
+        $forum = Forum::find($id);
 
 
 
-
-        $comment = CommentForum::where('forum_id', $forum->id);
+        $comment = CommentForum::where('forum_id', $id);
 
         if ($comment) {
             $comment->delete();
@@ -45,7 +37,9 @@ class ForumController extends Controller
         }
 
 
-        return redirect()->route('forum.index')
+
+
+        return redirect()->route('backforum.index')
         ->with('success', 'publication deleted successfully.');
     }
 
@@ -92,7 +86,6 @@ public function store(Request $request)
     {
         $forum = Forum::with('sender')->get();
         // On transmet les Post à la vue
-        return view("forum.index", compact("forum"));
+        return view("back/forum/forum.index", compact("forum"));
     }
-   
 }

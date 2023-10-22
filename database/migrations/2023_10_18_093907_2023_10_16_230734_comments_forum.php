@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->text('comment');
             $table->timestamps();
+            $table->unsignedBigInteger('user_id')->nullable();;
+
             $table->foreignId('forum_id')->constrained('forums');
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }

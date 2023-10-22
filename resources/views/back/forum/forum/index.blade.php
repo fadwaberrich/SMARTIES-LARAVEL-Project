@@ -1,13 +1,9 @@
-@extends('front.layout')
+@extends('Back.layout')
 @section('content')
-    <h1>Forum</h1>
-    <div class="row g-5">
-    @auth
-        @php
-            $isAdmin = auth()->user()->role === 'admin';
-        @endphp
+<h1 style="padding-top: 30px;">Forum</h1>
+    <div class="row g-4" style="width: 1000px;">
+ 
 
-        <a href="{{ route('forum.create') }}" class="btn btn-primary">Create Forum {{ auth()->user()->role }}</a>
 
         <div class="container" data-aos="fade-up">
             <div class="row gy-5 posts-list">
@@ -19,7 +15,8 @@
                             </div>
 
                             <h2 class="title">
-                                <a href="{{ route('forum.show', $publication->id) }}">{{ $publication->title }}</a>
+                                <a href="{{ route('backforum.show', $publication->id) }}">{{ $publication->title }} {{$publication->id}}</a>
+
                             </h2>
 
                             <div class="meta-top">
@@ -28,15 +25,14 @@
                                     <li class="d-flex align-items-center mr-1"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">{{ $publication->created_at }}</time></a></li>
                                     <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
 
-                                    @if($isAdmin || (auth()->user()->id === $publication->user_id))
-                                        <form action="{{ route('forum.destroy', $publication->id) }}" method="POST" class="d-inline">
+                                        <form action="{{ route('backforum.destroy', $publication->id) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" style="border: none; background: none; color: red;">
                                                 <i class="bi bi-archive-fill" style="font-size: 20px;"></i>
                                             </button>
                                         </form>
-                                    @endif
+                                  
                                 </ul>
                             </div>
 
@@ -48,5 +44,4 @@
                 @endforeach
             </div><!-- End blog posts list -->
         </div>
-    @endauth
     @endsection

@@ -1,8 +1,3 @@
-
-
-
-
-
 <!-- Mirrored from freshcart.codescandy.com/dashboard/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Mar 2023 15:49:35 GMT -->
 <head>
     <!-- Required meta tags -->

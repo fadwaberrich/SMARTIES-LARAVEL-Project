@@ -15,6 +15,28 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+<<<<<<< Updated upstream
+=======
+
+
+
+
+                    <x-nav-link :href="route('annonces.index')" :active="request()->routeIs('annonces.*')">
+                        {{ __('Annonces') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('barterRequests.index')" :active="request()->routeIs('barterRequests.*')">
+                        {{ __('barter Requests') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('responses.index')" :active="request()->routeIs('responses.*')">
+                        {{ __('Responses') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('events.index2')" :active="request()->routeIs('events.*')">
+                        {{ __('Events') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('forum.index')" :active="request()->routeIs('forum.*')">
+                        {{ __('Forums') }}
+                    </x-nav-link>
+>>>>>>> Stashed changes
                 </div>
             </div>
 
