@@ -28,6 +28,15 @@ class User extends Authenticatable /*implements MustVerifyEmail */{
     // Assuming you have a 'role' column in your users table
     return $this->role === 'admin';
 }
+public function sentForms()
+{
+    return $this->hasMany(Form::class, 'sender_id');
+}
+
+public function receivedForms()
+{
+    return $this->hasMany(Form::class, 'receiver_id');
+}
 
     /**
      * The attributes that should be hidden for serialization.

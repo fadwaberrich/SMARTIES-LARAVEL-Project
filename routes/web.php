@@ -52,6 +52,9 @@ Route::get('/forms/create', [FormController::class, 'create'])->name('forms.crea
 Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 Route::delete('/reports/{report}', [ReportController::class, 'destroy'])->name('reports.destroy');
 
+Route::get('/forms/received', [FormController::class, 'receivedForms'])->name('forms.received');
+Route::get('/forms/sent', [FormController::class, 'sentForms'])->name('forms.sent');
+
 
 
 Route::get('/category', [CategoryController::class, 'show'])->name('showCategory');

@@ -51,11 +51,8 @@
                         </td>
                         <td>{{ $form->created_at }}</td>
                         <td>
-                            @if (!$form->reported)
-                                <a href="{{ route('forms.create-report', ['form' => $form->id]) }}" class="btn btn-warning">Report</a>
-                            @else
-                                <!-- Show something else if the form has already been reported -->
-                            @endif
+                            <a href="{{ route('forms.create-report', ['form' => $form->id]) }}" class="btn btn-warning">Report</a>
+                            <a href="{{ route('forms.show', ['form' => $form->id]) }}" class="btn btn-info">View</a>
                         </td>
                     </tr>
                 @empty
@@ -66,4 +63,6 @@
             </tbody>
         </table>
     </div>
+</div>
+
 @endsection
