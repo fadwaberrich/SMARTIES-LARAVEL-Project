@@ -1,8 +1,6 @@
 @extends('front.layout')
 @section('content')
   <main class="p-10">
-
-
   @yield('content')
   <div class="container">
     <div class="row">
@@ -62,19 +60,7 @@
         </div>
     </div>
 @endif
-
-
-
-
-
   </main>
-
-
-
-
-
-
-
 @endsection
 
 
