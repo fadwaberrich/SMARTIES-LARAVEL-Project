@@ -1,4 +1,4 @@
-@extends(auth()->check() && auth()->user()->role === 'admin' ? 'back.layout' : 'front.layout')
+@extends(auth()->user()->role === 'admin' ? 'back.layout' : 'front.layout')
 
 
 @if(auth()->user()->role === 'user')
@@ -84,8 +84,24 @@
                                             <h4 class="mb-3 h5">Product Images</h4>
                                             <!-- input -->
                                             <input type="file" name="photo" class="form-control">
+                                        
+                                            @error('photo')
+                                            <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        
+                                            @if(old('photo'))
+                                            <div class="mt-2">
+                                                <strong>Old Photo:</strong>
+                                                <img src="{{ asset('storage/' . old('photo')) }}" alt="Old Photo" style="max-width: 200px; max-height: 200px;">
+                                            </div>
+                                            @elseif($product->annonce->photo)
+                                            <div class="mt-2">
+                                                <strong>Current Photo:</strong>
+                                                <img src="{{ asset('storage/' . $product->annonce->photo) }}" alt="Current Photo" style="max-width: 200px; max-height: 200px;">
+                                            </div>
+                                            @endif
                                         </div>
-                                    </div>
+                                        
                                     <!-- input -->
                                     <div class="mb-3">
                                         <h4 class="mb-3 h5">Product Descriptions</h4>
@@ -102,8 +118,7 @@
         
                                     <!-- button -->
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary">Update Product</button>
-                                    </div>
+                                        <button type="submit" class="btn btn-primary" style="background-color: blue; border-color: blue;">Update Product</button>                                    </div>
                                 </form>
                             </div>
                         </div>
