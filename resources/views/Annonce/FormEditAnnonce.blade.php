@@ -44,7 +44,10 @@
 
 
         <button type="submit" class="btn btn-primary" style="background-color: green">Update</button>
+        <a href="{{ route('products.edit', $annonce->product->id) }}" class="btn btn-warning">Edit Product</a>
+
         <a href="{{ route('user.announcements') }}" class="btn btn-primary" style="background-color: blue">Back</a>
+
     </form>
 </div>
 @endsection

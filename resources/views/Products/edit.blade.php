@@ -1,18 +1,9 @@
-@extends('back.layout')
+@extends(auth()->check() && auth()->user()->role === 'admin' ? 'back.layout' : 'front.layout')
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="Codescandy" name="author">
-    <title>Reviews Dashboard - FreshCart </title>
-
-
-</head>
+@if(auth()->user()->role === 'user')
+@section('content')
+@endif
 
 <body>
 
@@ -128,7 +119,7 @@
         
 </div>
 </body>
+@if(auth()->user()->role === 'user')
+@endsection('content')
+@endif
 
-
-
-</html>
