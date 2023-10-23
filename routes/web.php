@@ -12,7 +12,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BarterRequestController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ReportController;
-
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ResponseController;
 
@@ -94,4 +94,5 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('review-ratings', ReviewController::class);
 });
+Route::resource('users', UserController::class);
 require __DIR__ . '/auth.php';

@@ -65,9 +65,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="nav-item mt-6 mb-3">
-                            <span class="nav-label">Store Managements</span>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('products.index') }}">
                                 <div class="d-flex align-items-center">
@@ -112,24 +110,24 @@
                             </div>
                         </li>
                         <li class="nav-item ">
-                                            <a class="nav-link " href="{{route('venuess.index')}}">
-                                                <div class="d-flex align-items-center">
-                                                    <span class="nav-link-icon"> <i class="bi bi-globe"></i></span>
-                                                    <span class="nav-link-text">Venues</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item ">
-                                            <a class="nav-link " href="{{route('events.index')}}">
-                                                <div class="d-flex align-items-center">
-                                                    <span class="nav-link-icon"> <i class="bi bi-people"></i></span>
-                                                    <span class="nav-link-text">Events</span>
-                                                </div>
-                                            </a>
-                                        </li>
+                            <a class="nav-link " href="{{ route('venuess.index') }}">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon"> <i class="bi bi-globe"></i></span>
+                                    <span class="nav-link-text">Venues</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="{{ route('events.index') }}">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon"> <i class="bi bi-people"></i></span>
+                                    <span class="nav-link-text">Events</span>
+                                </div>
+                            </a>
+                        </li>
 
                         <li class="nav-item ">
-                            <a class="nav-link " href="customers.html">
+                            <a class="nav-link "  href="{{ route('users.index') }}">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon"> <i class="bi bi-people"></i></span>
                                     <span class="nav-link-text">Users</span>
