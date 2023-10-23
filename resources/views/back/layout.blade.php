@@ -150,6 +150,14 @@
                                 </div>
                             </a>
                         </li>
+                        <li class="nav-item">
+    <a class="nav-link" href="{{ route('reports.store') }}">
+        <div class="d-flex align-items-center">
+            <span class="nav-link-icon"><i class="bi bi-list-task"></i></span>
+            <span class="nav-link-text">Reports</span>
+        </div>
+    </a>
+</li>
 
                         <!-- Nav item -->
 

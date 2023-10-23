@@ -38,6 +38,12 @@
                             <x-nav-link :href="route('forum.index')" :active="request()->routeIs('forum.*')">
                                 {{ __('Forum') }}
                             </x-nav-link>
+                            <x-nav-link :href="route('front.forms.index')" :active="request()->routeIs('front.forms.index')">
+    {{ __('Proposition') }}
+</x-nav-link>
+
+
+
                         </div>
                     </div>
 
