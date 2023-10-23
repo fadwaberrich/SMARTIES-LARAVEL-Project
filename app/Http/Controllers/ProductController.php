@@ -6,6 +6,8 @@ use App\Models\Annonce;
 use App\Models\ReviewRating;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Events\ProductCreated;
+use Twilio\Rest\Client;
 
 class ProductController extends Controller
 {
@@ -70,7 +72,20 @@ class ProductController extends Controller
         }
     
         $product = Product::create($validatedData);
+      
         $product->save();
+        //event(new ProductCreated($product));
+        $sid= getenv("TWILIO_SID");
+        $token=getenv("TWILIO_AUTH_TOKEN");
+        $sendernumber=getenv("TWILIO_PHONE_NUMBER");
+        $twilio= new Client($sid,$token);
+        $message=$twilio->messages->create("+216 23 251 728",
+        [
+            "body"=>"Your announcement was created successfully ! ",
+            "from"=>$sendernumber
+        ]);
+        //dd("msg sent");
+      
     
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
