@@ -31,16 +31,24 @@ class ReportController extends Controller
             'description' => 'required|string',
         ]);
     
-        // Create a new report associated with the specified form.
-        Report::create($data);
-    
-        // Update the 'report' attribute in the 'Form' model to indicate that it has been reported.
         $form = Form::find($data['form_id']);
-        $form->report = true;
-        $form->save();
+        
+        // Check if the form is not reported, and then create the report
+        if (!$form->reported) {
+            $report = $form->reports()->create($data);
     
-        return redirect()->route('forms.index')->with('success', 'Report created successfully.');
+            // Update the 'reported' attribute in the 'Form' model to indicate that it has been reported
+            $form->reported = true;
+            $form->save();
+    
+            return redirect()->route('front.forms.index')->with('success', 'Report created successfully.');
+        } else {
+            return redirect()->route('front.forms.index')->with('error', 'A report already exists for this form.');
+        }
     }
+    
+    
+    
     
 
 
@@ -71,6 +79,8 @@ class ReportController extends Controller
     public function destroy(Report $report)
     {
         $report->delete();
-
-        return redirect()->route('reports.index')->with('success', 'Report deleted successfully.');
-    }}
+    
+        return redirect()->back()->with('success', 'Report deleted successfully.');
+    }
+    
+}

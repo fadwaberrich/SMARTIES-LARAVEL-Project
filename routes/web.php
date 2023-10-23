@@ -47,10 +47,11 @@ Route::get('/back', function () {
 })->name('back');
 
 Route::post('reports', [ReportController::class, 'store'])->name('reports.store');
-Route::get('/forms/{form}/create-report', [ReportController::class, 'create'])->name('reports.create');
+Route::get('/forms/{form}/create-report', [FormController::class, 'createReport'])->name('forms.create-report');
 Route::get('/forms/create', [FormController::class, 'create'])->name('forms.create');
-
 Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
+Route::delete('/reports/{report}', [ReportController::class, 'destroy'])->name('reports.destroy');
+
 
 
 Route::get('/category', [CategoryController::class, 'show'])->name('showCategory');
@@ -65,6 +66,8 @@ Route::get('/products/{product}/reviews', [ProductController::class, 'showReview
 Route::get('eventsfront', [EventController::class, 'index2']) ->name('events.index2');
 Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('products.create');
 Route::get('/user-announcements', [AnnonceController::class,'ShowUserAnnouncements'])->name('user.announcements');
+Route::get('/front/forms', [FormController::class, 'frontIndex'])->name('front.forms.index');
+
 
 Route::get('/annonces/generatePDF', [AnnonceController::class,'generatePDF'])->name('generatePDF');
 Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');

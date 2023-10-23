@@ -10,17 +10,54 @@ use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $forms = Form::all();
+        $search = $request->input('search');
+        $date = $request->input('date');
+        $sort = $request->input('sort', 'desc'); // Default to sorting by newest
+    
+        $forms = Form::when($search, function ($query) use ($search) {
+            return $query->where('title', 'like', '%' . $search . '%');
+        })
+        ->when($date, function ($query) use ($date) {
+            return $query->whereDate('created_at', $date);
+        })
+        ->orderBy('created_at', $sort) // Sort by 'created_at' in ascending or descending order
+        ->get();
+    
         return view('forms.index', compact('forms'));
     }
+    
+    
+    
 
     public function create()
     {
         return view('forms.create');
     }
 
+   
+    public function frontForms()
+    {
+        $forms = Form::all(); // Fetch all forms from your database
+    
+        return view('forms.front_forms', compact('forms'));
+    }
+    public function frontIndex(Request $request)
+    {
+        $search = $request->input('search');
+        $sort = $request->input('sort', 'desc'); // Default to sorting by newest
+    
+        $forms = Form::when($search, function ($query) use ($search) {
+            return $query->where('title', 'like', '%' . $search . '%');
+        })
+        ->orderBy('created_at', $sort)
+        ->get();
+    
+        return view('forms.front_forms', compact('forms'));
+    }
+    
+    
 
     public function store(Request $request)
     {
@@ -55,13 +92,12 @@ public function createReport(Form $form)
         return redirect()->route('forms.show', $form)->with('error', 'A report already exists for this form.');
     }
 
-    // Create a new report for the form
-    $report = new Report();
-    $report->form_id = $form->id;
-    $report->save();
-
-    return redirect()->route('forms.show', $form)->with('success', 'Report created successfully.');
+    // You can redirect to a form where the user provides the title and description for the report
+    return view('reports.create', compact('form'));
 }
+
+
+
 
 
 
