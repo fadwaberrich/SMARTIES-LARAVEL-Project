@@ -90,8 +90,10 @@ public function store(Request $request)
 
     public function index()
     {
-        $forum = Forum::with('sender')->get();
-        // On transmet les Post à la vue
+        $forum = Forum::with('sender')
+        ->withCount('comments')
+        ->get();
+            // On transmet les Post à la vue
         return view("forum.index", compact("forum"));
     }
    

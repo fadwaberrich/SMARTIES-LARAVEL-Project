@@ -12,7 +12,6 @@ class CommentForumController extends Controller
 
     public function store(Request $request)
     {
-        
         $id = (int)$request->input('id');
         $comment = $request->input('comment');
     
@@ -27,7 +26,6 @@ class CommentForumController extends Controller
         ];
     
         $request->validate($rules, $messages);
-    
         $record = Forum::find($id);
     
         // Obtenir l'utilisateur actuellement connecté

@@ -8,7 +8,7 @@
 
     <div class="form-group">
         <label for="title">Titre:</label>
-        <textarea class="form-control" name="title" id="title" rows="4"></textarea>
+        <textarea class="form-control" name="title" id="title" rows="4" style="height: 10px;"></textarea>
         @error('title')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror

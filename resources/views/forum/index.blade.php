@@ -26,7 +26,7 @@
                                 <ul class="d-flex align-items-center list-unstyled">
                                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">{{ $publication->sender->name }}</a></li>
                                     <li class="d-flex align-items-center mr-1"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">{{ $publication->created_at }}</time></a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">{{$publication->comments_count}} Comments</a></li>
 
                                     @if($isAdmin || (auth()->user()->id === $publication->user_id))
                                         <form action="{{ route('forum.destroy', $publication->id) }}" method="POST" class="d-inline">
