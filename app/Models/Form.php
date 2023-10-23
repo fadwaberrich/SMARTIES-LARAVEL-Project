@@ -26,8 +26,7 @@ class Form extends Model
 
     public function reports()
 {
-    return $this->hasMany(Report::class, 'form_id');
-}   
+    return $this->hasMany(Report::class, 'form_id')->cascade('delete');}   
     
 
 }
