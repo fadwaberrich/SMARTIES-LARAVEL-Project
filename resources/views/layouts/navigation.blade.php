@@ -38,9 +38,9 @@
                             <x-nav-link :href="route('forum.index')" :active="request()->routeIs('forum.*')">
                                 {{ __('Forum') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('front.forms.index')" :active="request()->routeIs('front.forms.index')">
-    {{ __('Proposition') }}
-</x-nav-link>
+                          
+                      
+
 
 
 
@@ -83,6 +83,11 @@
                                     <x-dropdown-link :href="route('forms.create')" :active="request()->routeIs('annonces.*')">
                                         {{ __('My Requests') }}
                                     </x-dropdown-link>
+                                   
+                                    <x-dropdown-link :href="route('front.forms.index')" :active="request()->routeIs('front.forms.index')">
+    {{ __('Proposition') }}
+</x-dropdown-link>
+
 
 
                                     <!-- Authentication -->

@@ -12,7 +12,6 @@ class Report extends Model
         'title',
         'description',
         'form_id',
-        'report', 
     ];
 
     public function form()
