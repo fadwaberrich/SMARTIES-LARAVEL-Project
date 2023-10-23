@@ -8,7 +8,7 @@
         @csrf
         <div class="form-group py-2">
             <label for="title">Title:</label>
-            <input class="form-control" name="title" id="title" rows="4">{{ old('title') }}</input>
+            <input class="form-control" name="title" id="title" rows="4" value="{{ old('title') }}">
             @error('title')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -21,11 +21,15 @@
             @enderror
         </div>
 
-
-
         <!-- Add other form fields here, e.g., barter_id, user_id -->
+
+        <!-- Add reCAPTCHA and error message container -->
+        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+        @if ($errors->has('g-recaptcha-response'))
+            <div class="text-danger">{{ $errors->first('g-recaptcha-response') }}</div>
+        @endif
 
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
-    </div>
+</div>
 @endsection

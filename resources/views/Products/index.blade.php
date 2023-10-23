@@ -100,7 +100,6 @@
                                                 </th>
                                                 <th>Image</th>
                                                 <th>Proudct Name</th>
-                                                <th>Category</th>
                                                 <th>Status</th>
                                                 <th>Price</th>
                                                 <th>Create at</th>
@@ -122,7 +121,6 @@
                                                     </td>
                                                     <td><a href="#"
                                                             class="text-reset">{{ $product->product_name }}</a></td>
-                                                    <td>{{ $product->category }}</td>
 
                                                     <td>
                                                         @if ($product->status === 'active')

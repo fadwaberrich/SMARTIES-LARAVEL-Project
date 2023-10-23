@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Venue;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User; // Import the User model
+use App\Mail\EventCreated; // Import the mailable class
 class EventController extends Controller
 {
 
@@ -21,6 +24,7 @@ class EventController extends Controller
         }
         public function create()
         {
+
             $venues = Venue::all();
             return view('events.create',compact('venues'));
         }
@@ -85,7 +89,12 @@ class EventController extends Controller
             ]);
 
             $event->save();
-
+ // Send email to all users
+ $users = User::all(); // Assuming you have a User model
+ $eventMail = new EventCreated($event); // Pass the event data to the mailable
+ foreach ($users as $user) {
+     Mail::to($user->email)->send($eventMail);
+ }
             return redirect()->route('events.index');
         }
 

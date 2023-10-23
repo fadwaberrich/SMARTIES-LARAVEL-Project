@@ -4,8 +4,6 @@
 <div class="" style="margin-left:210px;">
     <h1>Barter Requests</h1>
 
-    <a href="{{ route('barterRequests.create') }}" class="btn btn-primary">Create Barter Request</a>
-
     <div class="row mt-3">
         @foreach($barterRequests as $barterRequest)
             <div class="col-md-4 mb-4">

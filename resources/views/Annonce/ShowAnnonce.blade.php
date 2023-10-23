@@ -36,7 +36,7 @@
                 </div>
                 <div class="card-footer">
                     <!-- Bouton pour éditer l'annonce -->
-                    <a href="" class="btn btn-primary" style="background-color: darkblue">Show details</a>
+                    <a href="{{ route('products.show', $annonce->product->id) }}" class="btn btn-primary" style="background-color: darkblue">Show details</a>
                     
                     
                 </div>

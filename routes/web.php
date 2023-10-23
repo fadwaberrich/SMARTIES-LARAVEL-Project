@@ -70,6 +70,9 @@ Route::get('/annonces/generatePDF', [AnnonceController::class,'generatePDF'])->n
 Route::get('/annonces/search', [AnnonceController::class,'search'])->name('Search');
 Route::delete('/annonces/{annonce}/destroyBack', [AnnonceController::class, 'destroyBack'])->name('destroyBack');
 Route::get('/annonces/Back', [AnnonceController::class, 'Back'])->name('Back');
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
 
 ///***************************** */
 ///  svp  7otou les ressources lkol lhne 5ater 9a3din yebloquou f les routes lfou9/////
