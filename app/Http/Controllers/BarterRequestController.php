@@ -6,6 +6,9 @@ use App\Models\BarterRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use ReCaptcha\ReCaptcha;
+use Illuminate\Validation\Rule;
+use Validator;
 
 class BarterRequestController extends Controller
 {
@@ -48,28 +51,28 @@ class BarterRequestController extends Controller
      */
     public function store(Request $request)
     {
+        // 1. Validate the form data, including reCAPTCHA
+        $rules = [
+            'message' => 'required|string',
+            'title' => 'required|string',
+            'g-recaptcha-response' => 'required', // Use 'no_captcha' as the validation rule
+            // Add other validation rules for additional form fields
+        ];
 
+        $customMessages = [
+            'g-recaptcha-response.required' => 'Please complete the reCAPTCHA challenge.',
+        ];
+
+        $request->validate($rules, $customMessages);
+
+        // 2. Continue with form processing if validation passes
         if (auth()->check()) {
             $user = auth()->user(); // Get the authenticated user
             $user_id = $user->id; // Get the user's ID
         }
         $annonce_id = session('annonce_id');
 
-        // Validation rules for the form fields in the update method
-        $rules = [
-            'message' => 'required|string',
-            'title' => 'required|string',
-            // Add other validation rules for additional form fields
-        ];
-
-        // Custom error messages for the update method
-        $customMessages = [
-        ];
-
-        $request->validate($rules, $customMessages);
-
-
-        // Create a new BarterRequest record with the "price" and "image" fields
+        // 3. Create a new BarterRequest record
         $barterRequest = new BarterRequest([
             'message' => $request->input('message'),
             'title' => $request->input('title'),
@@ -77,16 +80,15 @@ class BarterRequestController extends Controller
             'user_id' => $request->input('user_id'),
         ]);
 
-    $barterRequest->annonce_id = $annonce_id;
-    $barterRequest->user_id = $user_id;
+        $barterRequest->annonce_id = $annonce_id;
+        $barterRequest->user_id = $user_id;
 
-    $barterRequest->save();
-    $request->session()->forget('annonce_id');
+        $barterRequest->save();
+        $request->session()->forget('annonce_id');
 
         return redirect()->route('barterRequests.index')
             ->with('success', 'Barter request created successfully.');
     }
-
     /**
      * Display the specified resource.
      */
@@ -129,7 +131,6 @@ class BarterRequestController extends Controller
                 'message' => $request->input('message'),
                 'title' => $request->input('title'),
                 'barter_id' => $request->input('barter_id'),
-                'user_id' => $request->input('user_id'),
             ]);
 
             return redirect()->route('barterRequests.index')

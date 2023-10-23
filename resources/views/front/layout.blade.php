@@ -34,7 +34,7 @@
 
 
         <main class="p-10">
-                  
+
             @yield('content')
 
         </main>
@@ -74,6 +74,7 @@
     <!-- Theme CSS -->
 </body>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <!-- Mirrored from freshcart.codescandy.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Mar 2023 15:48:40 GMT -->
 
