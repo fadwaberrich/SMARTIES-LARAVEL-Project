@@ -74,6 +74,10 @@
                                     <x-dropdown-link :href="route('user.announcements')" :active="request()->routeIs('annonces.*')">
                                         {{ __('Mes annonces') }}
                                     </x-dropdown-link>
+                                    <x-dropdown-link :href="route('forms.create')" :active="request()->routeIs('annonces.*')">
+                                        {{ __('My Requests') }}
+                                    </x-dropdown-link>
+
 
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">

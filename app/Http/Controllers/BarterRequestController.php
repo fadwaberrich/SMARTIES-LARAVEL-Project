@@ -55,7 +55,7 @@ class BarterRequestController extends Controller
         $rules = [
             'message' => 'required|string',
             'title' => 'required|string',
-            'g-recaptcha-response' => 'required', // Use 'no_captcha' as the validation rule
+       //     'g-recaptcha-response' => 'required', // Use 'no_captcha' as the validation rule
             // Add other validation rules for additional form fields
         ];
 
