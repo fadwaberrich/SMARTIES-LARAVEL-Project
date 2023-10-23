@@ -3,7 +3,7 @@
 @section('content')
 <div class="container" style="margin-top: 30px;">
 
-    
+
     <h1>Event List</h1>
 
     <a href="{{ route('events.create') }}" class="btn btn-primary">Create Event</a>
@@ -18,7 +18,7 @@
                 <th>Description</th>
                 <th>Date</th>
                 <th>Location</th>
-                <th>Ticket Price</th>   
+                <th>Ticket Price</th>
                 <th>Status</th>
                 <th>Actions</th>
             </tr>

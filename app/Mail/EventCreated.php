@@ -18,7 +18,8 @@ class EventCreated extends Mailable
      */
     public function __construct()
     {
-        //
+        $this->from('troctwin@gmail.com', 'barter App');
+
     }
 
     /**
