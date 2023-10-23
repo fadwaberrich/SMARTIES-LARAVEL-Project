@@ -66,7 +66,6 @@ Route::delete('/category/{category}/destroy', [CategoryController::class, 'destr
 Route::get('/category/search', [CategoryController::class, 'search'])->name('searchCategory');
 Route::get('/products/{product}/reviews', [ProductController::class, 'showReviews'])->name('products.reviews');
 
-Route::get('eventsfront', [EventController::class, 'index2']) ->name('events.index2');
 Route::get('/products/create/{annonce_id}', 'ProductController@create')->name('products.create');
 Route::get('/user-announcements', [AnnonceController::class,'ShowUserAnnouncements'])->name('user.announcements');
 Route::get('/front/forms', [FormController::class, 'frontIndex'])->name('front.forms.index');
@@ -85,15 +84,26 @@ Route::get('/email/verify', function () {
 Route::resource("forum", ForumController::class);
 Route::resource("commentforum", CommentForumController::class);
 Route::resource('review-ratings', ReviewController::class);
-Route::resource("barterRequests", BarterRequestController::class);
 Route::resource('forms', FormController::class);
 Route::resource('reports', ReportController::class);
-Route::resource('venuess', VenueController::class);
 Route::resource('annonces', AnnonceController::class);
-Route::resource("barterRequests", BarterRequestController::class);
-Route::resource('events', EventController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('eventsfront', [EventController::class, 'index2']) ->name('events.index2');
+});
+Route::middleware('auth')->group(function () {
+    Route::resource('events', EventController::class);
+});
+Route::middleware('auth')->group(function () {
+    Route::resource('venuess', VenueController::class);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::resource("barterRequests", BarterRequestController::class);
+});
+Route::middleware('auth')->group(function () {
+    Route::resource("responses", ResponseController::class);
+});
 Route::resource('products', ProductController::class);
-Route::resource("responses", ResponseController::class);
 Route::middleware('auth')->group(function () {
     Route::resource('annonces', AnnonceController::class);
 });
