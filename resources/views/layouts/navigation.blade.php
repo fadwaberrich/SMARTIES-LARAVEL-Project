@@ -24,9 +24,7 @@
                             <x-nav-link :href="route('annonces.index')" :active="request()->routeIs('annonces.*')">
                                 {{ __('Annonces') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('annonces.create')" :active="request()->routeIs('annonces.*')">
-                                {{ __('Déposer votre annonce ') }}
-                            </x-nav-link>
+                           
 
                             <x-nav-link :href="route('barterRequests.index')" :active="request()->routeIs('barterRequests.*')">
                                 {{ __('barter Requests') }}
