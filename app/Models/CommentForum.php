@@ -17,5 +17,9 @@ class CommentForum extends Model
     {
         return $this->belongsTo(Forum::class, 'forum_id');
     }
+    public function sender()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 
 }

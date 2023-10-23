@@ -6,7 +6,7 @@ use App\Models\Annonce;
 use App\Models\ReviewRating;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Events\ProductCreated;
+
 use Twilio\Rest\Client;
 
 class ProductController extends Controller
@@ -85,10 +85,12 @@ class ProductController extends Controller
             "from"=>$sendernumber
         ]);
         //dd("msg sent");
-      
-    
-        return redirect()->route('products.index')->with('success', 'Product created successfully.');
+        $annonceId = $product->annonce_id;
+
+        return redirect()->route('annonces.index', ['annonce' => $annonceId])
+            ->with('success', 'Product created successfully.');
     }
+    
     
     
 

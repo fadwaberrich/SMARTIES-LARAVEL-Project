@@ -15,6 +15,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Controllers\ForumBackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,3 +113,8 @@ Route::middleware('auth')->group(function () {
 });
 Route::resource('users', UserController::class);
 require __DIR__ . '/auth.php';
+Route::resource("forum", ForumController::class);
+Route::resource("commentforum", CommentForumController::class);
+Route::resource("forum", ForumController::class);
+Route::resource("backforum", ForumBackController::class);
+Route::resource("commentforum", CommentForumController::class);
