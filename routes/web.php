@@ -6,19 +6,10 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\VenueController;
-<<<<<<< Updated upstream
-=======
-use App\http\Controllers\ForumController;
-use App\http\Controllers\CommentForumController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\BarterRequestController;
-use App\Http\Controllers\FormController;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumBackController;
 
-use App\Http\Controllers\ReportController;
->>>>>>> Stashed changes
-
-
+use App\Http\Controllers\CommentForumController;
 
 use App\Http\Controllers\CategoryController;
 
@@ -61,6 +52,16 @@ Route::resource("barterRequests", BarterRequestController::class);
 Route::resource("forum", ForumController::class);
 Route::resource("backforum", ForumBackController::class);
 Route::resource("commentforum", CommentForumController::class);
+
+
+Route::middleware('auth')->group(function () {
+    Route::resource("forum", ForumController::class);
+    Route::resource("commentforum", CommentForumController::class);
+    });
+
+
+
+
 Route::resource('review-ratings', ReviewController::class);
 Route::get('review-ratings/{id}/edit', 'ReviewController@edit')->name('review-ratings.edit');
 
