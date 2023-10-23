@@ -248,7 +248,6 @@
                                         <h5 class="mb-1">Unit</h5>
                                         <p class="mb-0">{{ $product->units }}</p>
                                     </div>
-                                    @if(auth()->user()->id == $product->annonce->user_id)
                                     <!-- rating -->
                                     <h3 class="mb-5">Create Review Rating</h3>
                                     <form method="POST" action="{{ route('review-ratings.store') }}">
@@ -288,7 +287,6 @@
                                         </div>
                                         
                                     </form>
-                                    @endif
 
                                 </div>
                             </div>
