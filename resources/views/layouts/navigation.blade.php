@@ -24,7 +24,7 @@
                             <x-nav-link :href="route('annonces.index')" :active="request()->routeIs('annonces.*')">
                                 {{ __('Annonces') }}
                             </x-nav-link>
-                           
+
 
                             <x-nav-link :href="route('barterRequests.index')" :active="request()->routeIs('barterRequests.*')">
                                 {{ __('barter Requests') }}
@@ -38,8 +38,8 @@
                             <x-nav-link :href="route('forum.index')" :active="request()->routeIs('forum.*')">
                                 {{ __('Forum') }}
                             </x-nav-link>
-                          
-                      
+
+
 
 
 
@@ -83,10 +83,15 @@
                                     <x-dropdown-link :href="route('forms.create')" :active="request()->routeIs('annonces.*')">
                                         {{ __('My Requests') }}
                                     </x-dropdown-link>
-                                   
+
                                     <x-dropdown-link :href="route('front.forms.index')" :active="request()->routeIs('front.forms.index')">
-    {{ __('Proposition') }}
-</x-dropdown-link>
+                                        {{ __('Proposition') }}
+                                    </x-dropdown-link> 
+                                    @if (auth()->user()->role === 'admin') 
+                                    <x-dropdown-link :href="route('back')" :active="request()->routeIs('back')">
+                                        {{ __('Admin') }}
+                                    </x-dropdown-link>
+                                    @endif
 
 
 

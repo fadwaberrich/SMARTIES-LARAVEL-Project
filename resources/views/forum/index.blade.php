@@ -7,7 +7,7 @@
             $isAdmin = auth()->user()->role === 'admin';
         @endphp
 
-        <a href="{{ route('forum.create') }}" class="btn btn-primary">Create Forum {{ auth()->user()->role }}</a>
+        <a href="{{ route('forum.create') }}" class="btn btn-primary">Create Forum </a>
 
         <div class="container" data-aos="fade-up">
             <div class="row gy-5 posts-list">

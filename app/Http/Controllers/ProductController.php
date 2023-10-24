@@ -79,12 +79,13 @@ class ProductController extends Controller
         $token=getenv("TWILIO_AUTH_TOKEN");
         $sendernumber=getenv("TWILIO_PHONE_NUMBER");
         $twilio= new Client($sid,$token);
-        $message=$twilio->messages->create("+216 23 251 728",
+       
+        $message=$twilio->messages->create("+216 50 598 694",
         [
             "body"=>"Your announcement was created successfully ! ",
             "from"=>$sendernumber
         ]);
-        //dd("msg sent");
+       
         $annonceId = $product->annonce_id;
 
         return redirect()->route('annonces.index', ['annonce' => $annonceId])
